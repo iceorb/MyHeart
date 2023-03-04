@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "a214c8f5139e34b5ea14",
+    "revision": "2af061bc0270065197a9",
     "url": "/madhacks2023/static/css/main.af0f70e8.chunk.css"
   },
   {
-    "revision": "a214c8f5139e34b5ea14",
-    "url": "/madhacks2023/static/js/main.a214c8f5.chunk.js"
+    "revision": "2af061bc0270065197a9",
+    "url": "/madhacks2023/static/js/main.2af061bc.chunk.js"
   },
   {
     "revision": "7fc5741dfb5d402e95fa",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/madhacks2023/static/media/logo.06e73328.svg"
   },
   {
-    "revision": "09caa98e17e9a264f1be9755bad79d04",
+    "revision": "76482a5f9b820d0414f928139f339dcd",
     "url": "/madhacks2023/index.html"
   }
 ];

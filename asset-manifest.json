@@ -1,7 +1,7 @@
 {
   "main.css": "/madhacks2023/static/css/main.af0f70e8.chunk.css",
-  "main.js": "/madhacks2023/static/js/main.a214c8f5.chunk.js",
-  "main.js.map": "/madhacks2023/static/js/main.a214c8f5.chunk.js.map",
+  "main.js": "/madhacks2023/static/js/main.2af061bc.chunk.js",
+  "main.js.map": "/madhacks2023/static/js/main.2af061bc.chunk.js.map",
   "static/js/1.7fc5741d.chunk.js": "/madhacks2023/static/js/1.7fc5741d.chunk.js",
   "static/js/1.7fc5741d.chunk.js.map": "/madhacks2023/static/js/1.7fc5741d.chunk.js.map",
   "static/js/2.970b3542.chunk.js": "/madhacks2023/static/js/2.970b3542.chunk.js",
@@ -11,6 +11,6 @@
   "static/media/logo.svg": "/madhacks2023/static/media/logo.06e73328.svg",
   "static/css/main.af0f70e8.chunk.css.map": "/madhacks2023/static/css/main.af0f70e8.chunk.css.map",
   "index.html": "/madhacks2023/index.html",
-  "precache-manifest.87bf86328d33fd5b213730648e761f6e.js": "/madhacks2023/precache-manifest.87bf86328d33fd5b213730648e761f6e.js",
+  "precache-manifest.c58aa79c51af3bc33bdd4342dfcb7b6c.js": "/madhacks2023/precache-manifest.c58aa79c51af3bc33bdd4342dfcb7b6c.js",
   "service-worker.js": "/madhacks2023/service-worker.js"
 }
