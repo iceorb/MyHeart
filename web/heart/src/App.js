@@ -11,7 +11,7 @@ function App({ Component }) {
   // 2. Use at the root of your app
   return (
     <NextUIProvider>
-      <Component />
+      <Navbar />
     </NextUIProvider>
   );
 }
