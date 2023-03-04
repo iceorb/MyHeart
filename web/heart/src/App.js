@@ -7,7 +7,11 @@ import Glass from './components/Glass'
 function App() {
   return (
     <div className="app">
-    <Glass/>
+    <div className="wrapper">
+      <h1>How About Them Apples</h1>
+      <form>
+      </form>
+    </div>
   </div>
   );
 }

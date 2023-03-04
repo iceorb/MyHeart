@@ -42,7 +42,7 @@ function Glass() {
           <input
             id="gender"
             className="glass__form__input"
-            placeholder="Gender (1 = Male or 0 = Female)"
+            placeholder="Gender"
             required
             autoFocus
             min="0"
