@@ -21,6 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <Glass/>
     </div>
   );
 }
