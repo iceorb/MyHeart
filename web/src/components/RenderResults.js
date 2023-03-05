@@ -17,6 +17,10 @@ function RenderResults(props) {
       color="warning"
       description = "Medium risk";
     }
+    else if (flag==0){
+      color="secondary"
+      description = "Low risk";
+    }
     return (
       <Card variant="flat">
         <Card.Body>
@@ -28,7 +32,7 @@ function RenderResults(props) {
             {description} {warningEmoji}
           </Text>
           <Spacer y="1"></Spacer>
-          {flag >= 1 ? (
+          {flag >= 0 ? (
           <Popover>
           <Popover.Trigger>
             <Button auto flat>View Recommendations</Button>
@@ -51,10 +55,10 @@ function RenderResults(props) {
         <Factors text="Alcohol" flag={props.signal.danger} recommend="Stop drinking"/>
       </Grid>
       <Grid xs={6}>
-        <Factors text="Physical" flag={props.signal.danger1} recommend="Work out"/>
+        <Factors text="Physical" flag={props.signal.danger2} recommend="Work out"/>
       </Grid>
       <Grid xs={6}>
-        <Factors text="Food Access" />
+        <Factors text="Food Access" flag={props.signal.danger1} recommend="(link to database of food pantries)"/>
       </Grid>
       <Grid xs={6}>
         <Factors text="Park Access" />

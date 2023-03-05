@@ -30,7 +30,7 @@ function App({ Component }) {
   const flags = {
     danger:2,
     danger1:1,
-    danger2:2
+    danger2:0
   }
 
 
