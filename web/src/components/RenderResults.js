@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, Text, Row, Popover, Button } from "@nextui-org/react";
+import { Grid, Card, Text, Row, Popover, Button, Tooltip } from "@nextui-org/react";
 import {Spacer} from "@nextui-org/react"; // Import the Spacer component
 import {Progress} from "@nextui-org/react"; // Import the Progress component
 
@@ -7,7 +7,7 @@ function RenderResults(props) {
   const Factors = ({ text, flag, recommend}) => {
     let color = "default";
     let warningEmoji = "";
-    let description = "";
+    let description = "-";
     if (flag == 2) {
       color="error";
       warningEmoji = "⚠️ ";
@@ -23,12 +23,12 @@ function RenderResults(props) {
           <Text h5 css={{ m: 0 }}>
             {text}
           </Text>
-          <Spacer y=".2"/>
+          <Spacer y=".1"/>
           <Text h2 color={color}>
             {description} {warningEmoji}
           </Text>
           <Spacer y="1"></Spacer>
-          {flag > 1 ? (
+          {flag >= 1 ? (
           <Popover>
           <Popover.Trigger>
             <Button auto flat>View Recommendations</Button>
@@ -38,7 +38,7 @@ function RenderResults(props) {
           </Popover.Content>
         </Popover>
     ) : (
-      <Spacer y="2"></Spacer>
+      <Spacer y="0"></Spacer>
     )}
         </Card.Body>
       </Card>
@@ -48,23 +48,23 @@ function RenderResults(props) {
   return (
     <Grid.Container gap={2} justify="center">
       <Grid xs={6}>
-        <Factors text="Heart Disease" flag={props.signal.danger} recommend="Eat a heart-healthy diet" />
+        <Factors text="Alcohol" flag={props.signal.danger} recommend="Stop drinking"/>
       </Grid>
       <Grid xs={6}>
-        <Factors text="Physical" />
+        <Factors text="Physical" flag={props.signal.danger1} recommend="Work out"/>
       </Grid>
       <Grid xs={6}>
-        <Factors text="Alcohol" />
+        <Factors text="Food Access" />
       </Grid>
       <Grid xs={6}>
-        <Factors text="Sleep" />
+        <Factors text="Park Access" />
         </Grid>
 
       <Grid xs={6}>
       <Card variant="flat">
         <Card.Body>
           <Text h3 css={{ m: 0 }}>
-            Model 1
+            Biological Model
           </Text>
           <Spacer y=".5" />
           <Progress value={props.nums.model1} shadow color="warning" status="warning" />
@@ -77,7 +77,7 @@ function RenderResults(props) {
       <Card variant="flat">
         <Card.Body>
           <Text h3 css={{ m: 0 }}>
-            Model 2
+            Biological Model 2
           </Text>
           <Spacer y=".5" />
           <Progress value={props.nums.model2} shadow color="error" status="error" />
@@ -88,7 +88,16 @@ function RenderResults(props) {
       </Grid>
       <Grid md={12}>
         <Card >
-          <Card.Header><Text h4>Community Based Risk Factors</Text></Card.Header>
+          <Card.Header><Text h3>Community Based Risk Model</Text><Tooltip content="Community-based 
+          risk factors are factors that are related to the community or environment in which an individual lives 
+          and can contribute to the development of various health conditions, including heart disease.
+          
+          Socioeconomic factors: Low income, low education level, unemployment, 
+          and poverty are all associated with an increased risk of heart disease.">
+          <Button light auto>
+            What is this?
+          </Button>
+        </Tooltip></Card.Header>
           <Card.Divider />
           <Card.Body>
           <Progress value="85" shadow color="error" status="error" />
