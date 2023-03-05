@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream
 import { Grid, Card, Text, Progress, Spacer } from "@nextui-org/react";
+=======
+import React from 'react';
+import { Grid, Card, Text } from "@nextui-org/react";
+>>>>>>> Stashed changes
 
 export default function App() {
   const Factors = ({ text }) => {
