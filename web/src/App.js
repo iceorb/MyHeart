@@ -13,7 +13,10 @@ function App({ Component }) {
 
   const handleSubmit = (data) => {
     console.log(data);
-    fetch('https://localhost:8080/data', {
+    fetch('https://localhost:3000/data', {
+      headers: {
+        "Content-Type": "application/json",
+  },
       body: JSON.stringify(data),
       method: 'post',
     })

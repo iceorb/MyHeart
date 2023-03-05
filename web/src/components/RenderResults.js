@@ -11,7 +11,7 @@ function RenderResults(props) {
     if (flag == 2) {
       color="error";
       warningEmoji = "⚠️ ";
-      description = "Warning: High risk";
+      description = "High risk";
     }
     else if (flag==1){
       color="warning"
@@ -21,11 +21,11 @@ function RenderResults(props) {
       <Card variant="flat">
         <Card.Body>
           <Text h5 css={{ m: 0 }}>
-            {text} {warningEmoji}
+            {text}
           </Text>
           <Spacer y=".2"/>
-          <Text h2>
-            {description}
+          <Text h2 color={color}>
+            {description} {warningEmoji}
           </Text>
           <Spacer y="1"></Spacer>
           {flag > 1 ? (
@@ -88,10 +88,11 @@ function RenderResults(props) {
       </Grid>
       <Grid md={12}>
         <Card >
-          <Card.Header><Text h4>Recommendations</Text></Card.Header>
+          <Card.Header><Text h4>Community Based Risk Factors</Text></Card.Header>
           <Card.Divider />
           <Card.Body>
-            <Text h4>Blank text</Text>
+          <Progress value="85" shadow color="error" status="error" />
+            <Text h4>85%</Text>
           </Card.Body>
         </Card>
       </Grid>
