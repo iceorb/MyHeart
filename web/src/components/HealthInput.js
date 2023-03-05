@@ -78,7 +78,7 @@ function HealthInput(props) {
       <Text h2 align="center" weight="bold">Bucky Badger</Text>
 
       <Button auto shadow onPress={handler}>
-        Update Profile
+        Update Data
       </Button>
 
 
@@ -104,8 +104,8 @@ function HealthInput(props) {
 
               <Spacer y={0.5} />
               <Dropdown>
-                <Dropdown.Button css={{ tt: "capitalize" }}>flat
-                  {sex ? sex : "Gender"}
+                <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  {sex ? sex : "Sex"}
                 </Dropdown.Button>
                 <Dropdown.Menu
                   disallowEmptySelection="true"
@@ -150,7 +150,7 @@ function HealthInput(props) {
               />
               <Spacer y={0.5} />
               <Dropdown>
-                <Dropdown.Button light css={{ tt: "capitalize" }}>
+                <Dropdown.Button flat css={{ tt: "capitalize" }}>
                   {angina ? angina : "Angina"}
                 </Dropdown.Button>
                 <Dropdown.Menu
@@ -158,8 +158,8 @@ function HealthInput(props) {
                   selectionMode="single"
                   onSelectionChange={setAngina}
                 >
-                  <Dropdown.Item key="1">Yes</Dropdown.Item>
-                  <Dropdown.Item key="0">No</Dropdown.Item>
+                  <Dropdown.Item key="yes">Yes</Dropdown.Item>
+                  <Dropdown.Item key="no">No</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </Col>
@@ -210,6 +210,7 @@ function HealthInput(props) {
             </Col>
         <Spacer y={1} />
       </Row>
+      <Spacer y={1} />
       <Button type="submit"
         onClick={closeHandler}
         >Calculate</Button>
