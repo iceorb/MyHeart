@@ -22,21 +22,27 @@ We used two datasets that use different metrics to predict the risk of heart dis
 ## Getting Started
 To get started with MyHeart, simply clone the repository and install the necessary dependencies:
 
-```bash
+```
+bash
 Copy code
 git clone https://github.com/icexorb/myheart.git
 cd myheart
-```npm install
+npm install
+```
+
 You will also need to install the necessary Python dependencies:
-
-```bash
+```
+bash
 Copy code
-```pip install scikit-learn
+pip install scikit-learn
+```
+
 Once you have installed the dependencies, start the server:
-
 ```bash
 Copy code
-```npm start
+npm start
+```
+
 You can then access the application by navigating to http://localhost:3000 in your web browser.
 
 ## Usage
