@@ -5,7 +5,7 @@ export default function App() {
     return (
       <Card variant="bordered">
         <Card.Body>
-          <Text h6 size={15} color="black" css={{ m: 0 }}>
+          <Text h6 size={15} css={{ m: 0 }}>
             {text}
           </Text>
         </Card.Body>

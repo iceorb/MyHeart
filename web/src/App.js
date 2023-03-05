@@ -3,7 +3,7 @@ import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { NextUIProvider, redDark } from '@nextui-org/react';
+import { NextUIProvider, Navbar } from '@nextui-org/react';
 import { createTheme, Card, Col, Row, Grid, Container, Spacer, Text} from '@nextui-org/react';
 import HealthInput from './components/HealthInput';
 import RenderResults from './components/RenderResults';
@@ -22,7 +22,7 @@ function App({ Component }) {
 
   return (
     <NextUIProvider>
-    <Container fluid gap={0}>
+    <Container lg gap={0}>
       <Spacer y={2} />
       <Row gap={2}>
         <Col span={8}>
@@ -36,6 +36,12 @@ function App({ Component }) {
           </Card>
         </Col>
       </Row>
+      <Spacer y="2" />
+      <Text 
+      align="center" h5
+      weight="bold"
+>Made in Wisconsin with ❤️ and 🧀</Text>
+<Spacer y="2" />
     </Container>
     </NextUIProvider>
     // <NextUIProvider>
@@ -47,11 +53,6 @@ function App({ Component }) {
     //   <RenderResults />
     //   </Col>
     //   <Spacer y="10" />
-    //   <Text h5
-    //   weight="bold"
-    //   >Made in Wisconsin with ❤️ and 🧀</Text>
-    //   <Spacer y="3" />
-    //   </Container>
     // </NextUIProvider>
   );
 }
