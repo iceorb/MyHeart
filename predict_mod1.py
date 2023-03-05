@@ -1,7 +1,7 @@
 import joblib
 import pandas as pd
 
-loaded_model = joblib.load('model1.mdl')
+loaded_model = joblib.load('Models/model1.mdl')
 
 example_data = [47.0, 160.0, 263.0, 0.0, 174.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
 
