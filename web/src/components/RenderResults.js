@@ -1,9 +1,7 @@
-<<<<<<< Updated upstream
-import { Grid, Card, Text, Progress, Spacer } from "@nextui-org/react";
-=======
 import React from 'react';
 import { Grid, Card, Text } from "@nextui-org/react";
->>>>>>> Stashed changes
+import {Spacer} from "@nextui-org/react"; // Import the Spacer component
+import {Progress} from "@nextui-org/react"; // Import the Progress component
 
 export default function App() {
   const Factors = ({ text }) => {
