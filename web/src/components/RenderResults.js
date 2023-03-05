@@ -1,19 +1,55 @@
-import React from "react";
-import { Grid, Progress } from '@nextui-org/react';
+import { Grid, Card, Text } from "@nextui-org/react";
 
 export default function App() {
-return (
-
-<Grid.Container xs={12} sm={6} gap={2}>
-      <Grid>
-        <Progress color="primary" value={75} text="hello" />
+  const MockItem = ({ text }) => {
+    return (
+      <Card variant="bordered">
+        <Card.Body>
+          <Text h6 size={15} color="black" css={{ m: 0 }}>
+            {text}
+          </Text>
+        </Card.Body>
+      </Card>
+    );
+  };
+  return (
+    <Grid.Container gap={2} justify="center">
+      <Grid xs={6}>
+        <MockItem text="1 of 2" />
       </Grid>
-      <Grid>
-        <Progress color="primary" value={55} />
+      <Grid xs={6}>
+        <MockItem text="2 of 2" />
       </Grid>
-      <Grid>
-        <Progress color="primary" value={35} />
+      <Grid xs={6}>
+        <MockItem text="1 of 3" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="2 of 3" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="3 of 3" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="1 of 4" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="2 of 4" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="3 of 4" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="4 of 4" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="1 of 3" />
+      </Grid>
+      <Grid xs={6}>
+        <MockItem text="2 of 3" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="3 of 3" />
       </Grid>
     </Grid.Container>
-    );
+  );
 }

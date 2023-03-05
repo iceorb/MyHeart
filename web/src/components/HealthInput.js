@@ -1,14 +1,24 @@
 import React from "react";
 import { useState } from 'react';
-import { Container, Row, Col, Card } from '@nextui-org/react';
-import { Input, Dropdown, Spacer, Text, Button } from '@nextui-org/react';
+import { Grid, Modal, Container, Row, Col, Card } from '@nextui-org/react';
+import { Input, Dropdown, Spacer, Text, Button, Avatar } from '@nextui-org/react';
 
-function HealthInput() {
+function HealthInput(props) {
 
+  const [visible, setVisible] = React.useState(false);
+  const handler = () => setVisible(true);
 
+  const closeHandler = () => {
+    setVisible(false);
+    console.log("closed");
+  };
+
+  const {
+    onSubmit,
+  } = props
 
   const [age, setAge] = useState(''); // Age
-  const [sex, setSex] = React.useState(new Set(["Gender"])); // Sex (male or female)
+  const [sex, setSex] = useState(''); // Sex (male or female)
   const selectedSex = React.useMemo(
     () => Array.from(sex).join(", ").replaceAll("_", " "),
     [sex]
@@ -17,7 +27,12 @@ function HealthInput() {
   const [cholesterol, setCholesterol] = useState(''); // Cholesterol Level
   const [fastingBS, setFastingBS] = useState(''); // Fasting Blood Sugar
   const [maxHR, setMaxHR] = useState(''); // Maximum Heart Rate Achieved
-  const [angina, setAngina] = useState(''); // Exercise-Induced Angina (yes or no)  
+  const [angina, setAngina] = useState(''); // Exercise-Induced Angina (yes or no)
+  const selectedAngina = React.useMemo(
+    () => Array.from(angina).join(", ").replaceAll("_", " "),
+    [angina]
+  );
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,21 +43,56 @@ function HealthInput() {
       chol: cholesterol,
       bs: fastingBS,
       hr: maxHR,
-      angina: angina
+      angina: selectedAngina
     };
+    onSubmit(data)
   };
 
 
-  return (
-    <Container xs align="center">
-      <Spacer y={3} />
-      <Text h2 align="center">Enter biological factors</Text>
-      <Spacer y={.7} />
-      <form>
-        <Card shadow="lg">
-          <Card.Body>
-            <Col xs justify="center" align="center">
+  const MockItem = ({ text }) => {
+    return (
+      <Card 
+      variant="bordered"
+      >
+        <Card.Body>
+          <Text h6 size={15} color="black" css={{ m: 0 }}>
+            {text}
+          </Text>
+          <Spacer y=".7"/>
+        </Card.Body>
+      </Card>
+    );
+  };
 
+  return (
+    <Container lg align="center">
+      <Spacer y={.7} />
+      <Avatar
+          src="https://cdn.theathletic.com/app/uploads/2022/08/26124913/USATSI_12352237-scaled-e1661532605880.jpg"
+          css={{ size: "$40" }}
+          bordered
+              color="gradient"
+              stacked
+        />
+        <Spacer y={.7} />
+      <Text h2 align="center" weight="bold">Bucky Badger</Text>
+
+      <Button auto shadow onPress={handler}>
+        Update Profile
+      </Button>
+
+
+      <Modal
+        closeButton
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+      >
+        <Modal.Body>
+          <Container gap={0} align="center" justify="center">
+            <form onSubmit={handleSubmit}>
+        <Row gap={1}>
+            <Col justify="center" align="center">
               <Spacer y={0.5} />
               <Input
                 clearable
@@ -54,14 +104,12 @@ function HealthInput() {
 
               <Spacer y={0.5} />
               <Dropdown>
-                <Dropdown.Button light css={{ tt: "capitalize" }}>
-                  {sex || "Sex"}
+                <Dropdown.Button css={{ tt: "capitalize" }}>flat
+                  {sex ? sex : "Gender"}
                 </Dropdown.Button>
                 <Dropdown.Menu
-                  variant="flat"
-                  disallowEmptySelection
+                  disallowEmptySelection="true"
                   selectionMode="single"
-                  selectedKeys={sex}
                   onSelectionChange={setSex}
                 >
                   <Dropdown.Item key="male">Male</Dropdown.Item>
@@ -97,21 +145,25 @@ function HealthInput() {
                 clearable
                 Placeholder="Max HR"
                 onChange={(event) =>
-                  setRestingBP(event.target.value)
+                  setMaxHR(event.target.value)
                 }
               />
               <Spacer y={0.5} />
+              <Dropdown>
+                <Dropdown.Button light css={{ tt: "capitalize" }}>
+                  {angina ? angina : "Angina"}
+                </Dropdown.Button>
+                <Dropdown.Menu
+                  disallowEmptySelection="true"
+                  selectionMode="single"
+                  onSelectionChange={setAngina}
+                >
+                  <Dropdown.Item key="1">Yes</Dropdown.Item>
+                  <Dropdown.Item key="0">No</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </Col>
-          </Card.Body>
-        </Card>
-
-
-        <Spacer y={2} />
-        <Text h2 align="center">Enter socioeconomic factors</Text>
-        <Spacer y={.7} />
-        <Card shadow="lg">
-          <Card.Body>
-            <Col xs justify="center" align="center">
+            <Col justify="center" align="center">
 
               <Spacer y={0.5} />
               <Input
@@ -122,7 +174,6 @@ function HealthInput() {
                 }
               />
 
-              <Spacer y={0.5} />
               <Spacer y={0.5} />
               <Input
                 clearable
@@ -157,27 +208,44 @@ function HealthInput() {
               />
               <Spacer y={0.5} />
             </Col>
-          </Card.Body>
-        </Card>
-
-        <Card shadow="lg">
-          <Card.Body>
-            <Col xs justify="center" align="center">
-              <h5>
-                Age: {age} <br />
-                Sex: {selectedSex} <br />
-                Resting BP: {restingBP} <br />
-                Cholesterol: {cholesterol} <br />
-                Fasting BS: {fastingBS} <br />
-                Max HR: {maxHR} <br />
-                Angina: {angina} <br />
-              </h5>
-            </Col>
-          </Card.Body>
-        </Card>
         <Spacer y={1} />
-        <Button type="submit">Calculate</Button>
-      </form>
+      </Row>
+      <Button type="submit"
+        onClick={closeHandler}
+        >Calculate</Button>
+        </form>
+      </Container>
+      </Modal.Body>
+      </Modal>
+
+
+
+      <Spacer y="2" />
+
+
+
+
+      <Grid.Container gap={3} justify="center">
+      <Grid xs={6}>
+        <MockItem text="FACTOR1" />
+      </Grid>
+      <Grid xs={6}>
+        <MockItem text="FACTOR2" />
+      </Grid>
+      <Grid xs={6}>
+        <MockItem text="FACTOR3" />
+      </Grid>
+      <Grid xs={6}>
+        <MockItem text="STAT1" />
+      </Grid>
+      <Grid xs={6}>
+        <MockItem text="STAT2" />
+      </Grid>
+      <Grid xs={6}>
+        <MockItem text="STAT3" />
+      </Grid>
+      </Grid.Container>
+      <Spacer y="1" />
     </Container>
   );
 }
