@@ -49,16 +49,18 @@ function HealthInput(props) {
   };
 
 
-  const MockItem = ({ text }) => {
+  const MockItem = ({ text, variable }) => {
     return (
       <Card 
       variant="bordered"
       >
-        <Card.Body>
+        <Card.Body> 
           <Text h6 size={15} css={{ m: 0 }}>
             {text}
           </Text>
-          <Spacer y=".7"/>
+          <Text h2 css={{tt:"capitalize"}}>
+          {variable || "0"}
+          </Text>
         </Card.Body>
       </Card>
     );
@@ -228,23 +230,17 @@ function HealthInput(props) {
 
       <Grid.Container gap={3} justify="center">
       <Grid xs={6}>
-        <MockItem text="FACTOR1" />
+        <MockItem text="Age" variable={age} />
       </Grid>
       <Grid xs={6}>
-        <MockItem text="FACTOR2" />
+        <MockItem text="Sex"variable={sex}/>
       </Grid>
       <Grid xs={6}>
-        <MockItem text="FACTOR3" />
+        <MockItem text="Resting BP" variable={restingBP} />
       </Grid>
       <Grid xs={6}>
-        <MockItem text="STAT1" />
-      </Grid>
-      <Grid xs={6}>
-        <MockItem text="STAT2" />
-      </Grid>
-      <Grid xs={6}>
-        <MockItem text="STAT3" />
-      </Grid>
+        <MockItem text="Cholesterol" variable={cholesterol} />
+        </Grid>
       </Grid.Container>
       <Spacer y="1" />
     </Container>
