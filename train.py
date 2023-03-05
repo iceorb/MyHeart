@@ -1,11 +1,17 @@
+# Train a LogisticRegression Model on HeartDisease Data
+
+# import libraries
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import KFold
 
 import pandas as pd
 
+import pickle
 
-def train(file):
+
+# Function to train data on CSV file
+def train(file, output):
     data = pd.read_csv(file)
     string_col = data.select_dtypes(include="object").columns
 
@@ -14,6 +20,8 @@ def train(file):
     kf5 = KFold(n_splits=5, shuffle=True, random_state=123)
 
     model = LogisticRegression(solver="liblinear", multi_class="auto")
+
+    print(df.iloc[162])
 
     i = 1
     for train_index, test_index in kf5.split(df):
@@ -27,9 +35,13 @@ def train(file):
         print(f"Accuracy for the fold no. {i} on the test set: {accuracy_score(y_test, model.predict(X_test))}")
         i += 1
 
+    filename = output + '.mdl'
+    pickle.dump(model, open(filename, 'wb'))
 
+
+# Main: Train on both datasets
 if __name__ == '__main__':
     # Data1
-    train('heart.csv')
+    train('heart.csv', 'model1')
     # Data3
-    train('heart_disease_new_cleaned.csv')
+    train('heart_disease_new_cleaned.csv', 'model2')
