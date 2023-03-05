@@ -33,13 +33,13 @@ def train(file, output):
         print(f"Accuracy for the fold no. {i} on the test set: {accuracy_score(y_test, model.predict(X_test))}")
         i += 1
 
-    filename = 'Models/' + output + '.mdl'
+    filename = output + '.mdl'
     pickle.dump(model, open(filename, 'wb'))
 
 
 # Main: Train on both datasets
 if __name__ == '__main__':
     # Data1
-    train('Data/heart.csv', 'model1')
+    train('Data/heart.csv', 'Models/model1')
     # Data3
-    train('Data/heart_disease_new_cleaned.csv', 'model2')
+    train('Data/heart_disease_new_cleaned.csv', 'Models/model2')
