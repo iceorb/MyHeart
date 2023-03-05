@@ -3,10 +3,9 @@ MyHeart is a proof-of-concept web application that empowers patients to take con
 
 ## Technology
 MyHeart uses three models to provide personalized recommendations and risk assessments for users:
-
-Biological Model 1
-Biological Model 2
-Community-based Risk Model
+- Biological Model 
+- Behavorial Model 
+- Community-based Risk Model
 
 The application is built using React, Node.js, NextUI, and REST APIs for the web app, and Python with scikit-learn for the backend. MyHeart uses K-Folding to evaluate the performance of each model and to determine the best parameters.
 
@@ -48,6 +47,3 @@ You can then access the application by navigating to http://localhost:3000 in yo
 ## Usage
 
 To use the MyHeart model, simply submit your healthcare information, including biological, behavioral, and socioeconomic factors. The MyHeart model will then give you proactive suggestions and information to improve your cardiovascular health.
-
-## License
-MyHeart is licensed under the MIT License. See LICENSE for more information.
