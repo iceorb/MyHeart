@@ -2,7 +2,7 @@ import joblib
 import pandas as pd
 
 def load_model2(data):
-    loaded_model = joblib.load('Models/model2.mdl')
+    loaded_model = joblib.load('flask/Models/model2.mdl')
 
     # Example data placeholder BMI	Smoking	AlcoholDrinking	Stroke	PhysicalHealth	MentalHealth	DiffWalking	Sex
     # AgeCategory	Race	Diabetic	PhysicalActivity	GenHealth	SleepTime	Asthma	KidneyDisease	SkinCancer

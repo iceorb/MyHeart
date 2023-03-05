@@ -40,6 +40,6 @@ def train(file, output):
 # Main: Train on both datasets
 if __name__ == '__main__':
     # Data1
-    train('Data/heart.csv', 'Models/model1')
+    train('flask/Data/heart.csv', 'flask/Models/model1')
     # Data3
-    train('Data/heart_disease_new_cleaned.csv', 'Models/model2')
+    train('flask/Data/heart_disease_new_cleaned.csv', 'flask/Models/model2')

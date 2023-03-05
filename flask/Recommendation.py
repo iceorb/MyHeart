@@ -19,8 +19,6 @@ def recommend(file,heart, smoke, alc, phys, sleep):
       
         i = i+1
 
-    print(mean)
-    print(std)
     #smoke
     if input[0] > mean[0] + (std[0]*1.5):
         output[0] = 2
