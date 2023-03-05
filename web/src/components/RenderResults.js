@@ -1,22 +1,45 @@
 import React from 'react';
-import { Grid, Card, Text } from "@nextui-org/react";
+import { Grid, Card, Text, Row, Popover, Button } from "@nextui-org/react";
 import {Spacer} from "@nextui-org/react"; // Import the Spacer component
 import {Progress} from "@nextui-org/react"; // Import the Progress component
 
 function RenderResults(props) {
-  const Factors = ({ text, percent, color }) => {
-    if (percent>70) {
-      color="error"
+  const Factors = ({ text, flag, recommend}) => {
+    let color = "default";
+    let warningEmoji = "";
+    let description = "";
+    if (flag == 2) {
+      color="error";
+      warningEmoji = "⚠️ ";
+      description = "Warning: High risk";
     }
-    else if (percent >40) {
+    else if (flag==1){
       color="warning"
+      description = "Medium risk";
     }
     return (
-      <Card variant="flat" color={color}>
+      <Card variant="flat">
         <Card.Body>
-          <Text h6 size={15} css={{ m: 0 }}>
-            {text}
+          <Text h5 css={{ m: 0 }}>
+            {text} {warningEmoji}
           </Text>
+          <Spacer y=".2"/>
+          <Text h2>
+            {description}
+          </Text>
+          <Spacer y="1"></Spacer>
+          {flag > 1 ? (
+          <Popover>
+          <Popover.Trigger>
+            <Button auto flat>View Recommendations</Button>
+          </Popover.Trigger>
+          <Popover.Content>
+            <Text css={{ p: "$10" }}>{recommend}</Text>
+          </Popover.Content>
+        </Popover>
+    ) : (
+      <Spacer y="2"></Spacer>
+    )}
         </Card.Body>
       </Card>
     );
@@ -24,52 +47,42 @@ function RenderResults(props) {
 
   return (
     <Grid.Container gap={2} justify="center">
-      <Grid xs={4}>
-        <Factors text="1 of 2" />
+      <Grid xs={6}>
+        <Factors text="Heart Disease" flag={props.signal.danger} recommend="Eat a heart-healthy diet" />
       </Grid>
-      <Grid xs={4}>
-        <Factors text="2 of 2" />
+      <Grid xs={6}>
+        <Factors text="Physical" />
       </Grid>
-      <Grid xs={4}>
-        <Factors text="1 of 3" />
+      <Grid xs={6}>
+        <Factors text="Alcohol" />
       </Grid>
-      <Grid xs={4}>
-        <Factors text="2 of 3" />
-      </Grid>
-      <Grid xs={4}>
-        <Factors text="3 of 3" />
-      </Grid>
-      <Grid xs={4}>
-        <Factors text="1 of 4" />
-      </Grid>
-      <Grid xs={4}>
-        <Factors text="2 of 4" />
-      </Grid>
-      <Grid xs={4}>
-        <Factors text="3 of 4" />
-      </Grid>
-      <Grid xs={4}>
-        <Factors text="4 of 4" />
-      </Grid>
+      <Grid xs={6}>
+        <Factors text="Sleep" />
+        </Grid>
+
       <Grid xs={6}>
       <Card variant="flat">
         <Card.Body>
-          <Text h6 size={15} css={{ m: 0 }}>
+          <Text h3 css={{ m: 0 }}>
             Model 1
           </Text>
           <Spacer y=".5" />
-          <Progress value={10} shadow color="warning" status="warning" />
+          <Progress value={props.nums.model1} shadow color="warning" status="warning" />
+          <Spacer y=".2" />
+          <Text>{props.nums.model1}%</Text>
         </Card.Body>
       </Card>
       </Grid>
       <Grid xs={6}>
       <Card variant="flat">
         <Card.Body>
-          <Text h6 size={15} css={{ m: 0 }}>
+          <Text h3 css={{ m: 0 }}>
             Model 2
           </Text>
           <Spacer y=".5" />
-          <Progress value={10} shadow color="error" status="error" />
+          <Progress value={props.nums.model2} shadow color="error" status="error" />
+          <Spacer y=".2" />
+          <Text>{props.nums.model2}%</Text>
         </Card.Body>
       </Card>
       </Grid>

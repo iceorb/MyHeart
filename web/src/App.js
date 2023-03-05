@@ -19,12 +19,15 @@ function App({ Component }) {
     })
   };
 
-  
+
   const results = {
-    test: 30,
-    test2: 40,
-    var3: 50,
-    var4: 60,
+    model1: 30,
+    model2: 100,
+  }
+  const flags = {
+    danger:2,
+    danger1:1,
+    danger2:2
   }
 
 
@@ -34,7 +37,7 @@ function App({ Component }) {
       <Spacer y={2} />
       <Row gap={2}>
         <Col span={8}>
-            <RenderResults nums={results}/>
+            <RenderResults nums={results} signal={flags}/>
         </Col>
         <Col span={4}>
           <Card>
