@@ -10,9 +10,12 @@ https://icexorb.github.io/madhacks2023/
 ## Usage
 ### Backend:
 `cd flask`
+
 `python3 front-end.py`
 
 ## Frontend:
 `cd web/src`
+
 `npm install`
+
 `npm start`
