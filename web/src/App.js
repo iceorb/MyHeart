@@ -5,6 +5,7 @@ import './App.css';
 import { NextUIProvider } from '@nextui-org/react';
 import { Button } from '@nextui-org/react';
 import HealthInput from './components/HealthInput';
+import DataTransfer from './components/DataTransfer';
 
 const Component = () => <Button>Click me</Button>;
 function App({ Component }) {
@@ -12,6 +13,7 @@ function App({ Component }) {
   return (
     <NextUIProvider>
       <HealthInput />
+      <DataTransfer />
     </NextUIProvider>
   );
 }
