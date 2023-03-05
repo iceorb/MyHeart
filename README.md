@@ -1,4 +1,6 @@
 # MyHeart
+_Built and demoed in MadHacks 2023_
+_Winner of Epic Systems Healthcare Empowerment Award_
 MyHeart is a proof-of-concept web application that empowers patients to take control of their own health by submitting healthcare information such as biological, behavioral, and socioeconomic factors. The focus of MyHeart is on addressing socioeconomic factors that can contribute to the development of various health conditions, including heart disease.
 
 https://icexorb.github.io/myheart/
