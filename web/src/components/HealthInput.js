@@ -17,13 +17,19 @@ export default function App() {
     <Container xs>
       <Text h1>Enter biological factors</Text>
       <Spacer y={5} />
-      <Card css={{ $$cardColor: '$colors$gradient' }}>
+      <Card css={{ $$cardColor: '$colors$primary' }}>
         <Card.Body>
-          <Col xs>
+          <Col xs justify="center" align="center">
       <Text h2>Enter your biological information</Text>
-      <Input placeholder="Age" />
+      <Input
+      labelPlaceholder="Age"
+      />
       <Spacer y={0.5} />
-      <Input placeholder="Height" />
+      <Input
+      bordered
+      labelLeft="Weight"
+      placeholder="200 lbs"
+      />
       <Spacer y={0.5} />
       <Input placeholder="Weight" />
       <Spacer y={0.5} />
@@ -57,7 +63,7 @@ export default function App() {
         <Dropdown.Item key="iteration">Iteration</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
-    
+
     <Dropdown>
       <Dropdown.Button flat color="secondary" css={{ tt: "capitalize" }}>
         {selectedValue}
