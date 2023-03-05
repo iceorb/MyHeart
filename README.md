@@ -1,4 +1,4 @@
-# Heart Disease Risk Calculator
+# MyHeart - a socially-economically aware heart disease risk calculator
 
 https://icexorb.github.io/myheart
 
