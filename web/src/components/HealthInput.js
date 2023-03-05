@@ -43,7 +43,7 @@ export default function App() {
         {selectedValue}
       </Dropdown.Button>
       <Dropdown.Menu
-        aria-label="Single selection actions"
+        aria-label="Disease"
         color="secondary"
         disallowEmptySelection
         selectionMode="single"
@@ -57,6 +57,28 @@ export default function App() {
         <Dropdown.Item key="iteration">Iteration</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
+    
+    <Dropdown>
+      <Dropdown.Button flat color="secondary" css={{ tt: "capitalize" }}>
+        {selectedValue}
+    </Dropdown.Button>
+      <Dropdown.Menu
+        aria-label="Disease"
+        color="secondary"
+        disallowEmptySelection
+        selectionMode="single"
+        selectedKeys={selected}
+        onSelectionChange={setSelected}
+      >
+        <Dropdown.Item key="text">Text</Dropdown.Item>
+        <Dropdown.Item key="number">Number</Dropdown.Item>
+        <Dropdown.Item key="date">Date</Dropdown.Item>
+        <Dropdown.Item key="single_date">Single Date</Dropdown.Item>
+        <Dropdown.Item key="iteration">Iteration</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+
+
     </Card>
     </Container>
   );
