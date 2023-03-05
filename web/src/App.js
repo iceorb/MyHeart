@@ -13,11 +13,19 @@ function App({ Component }) {
 
   const handleSubmit = (data) => {
     console.log(data);
-    fetch('https://localhost:8080/bio-data', {
+    fetch('https://localhost:8080/data', {
       body: JSON.stringify(data),
       method: 'post',
     })
   };
+
+  
+  const results = {
+    test: 30,
+    test2: 40,
+    var3: 50,
+    var4: 60,
+  }
 
 
   return (
@@ -26,7 +34,7 @@ function App({ Component }) {
       <Spacer y={2} />
       <Row gap={2}>
         <Col span={8}>
-            <RenderResults />
+            <RenderResults nums={results}/>
         </Col>
         <Col span={4}>
           <Card>
@@ -44,16 +52,6 @@ function App({ Component }) {
 <Spacer y="2" />
     </Container>
     </NextUIProvider>
-    // <NextUIProvider>
-    //   <Container>
-    //     <Col width="70%">
-    //   <HealthInput onSubmit={handleSubmit}/>
-    //   </Col>
-    //   <Col width="30%">
-    //   <RenderResults />
-    //   </Col>
-    //   <Spacer y="10" />
-    // </NextUIProvider>
   );
 }
 

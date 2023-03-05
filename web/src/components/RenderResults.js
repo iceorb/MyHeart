@@ -1,9 +1,15 @@
 import { Grid, Card, Text, Progress, Spacer } from "@nextui-org/react";
 
-export default function App() {
-  const Factors = ({ text }) => {
+function RenderResults(props) {
+  const Factors = ({ text, percent, color }) => {
+    if (percent>70) {
+      color="error"
+    }
+    else if (percent >40) {
+      color="warning"
+    }
     return (
-      <Card variant="flat">
+      <Card variant="flat" color={color}>
         <Card.Body>
           <Text h6 size={15} css={{ m: 0 }}>
             {text}
@@ -65,7 +71,7 @@ export default function App() {
       </Card>
       </Grid>
       <Grid md={12}>
-        <Card>
+        <Card >
           <Card.Header><Text h4>Recommendations</Text></Card.Header>
           <Card.Divider />
           <Card.Body>
@@ -76,3 +82,5 @@ export default function App() {
     </Grid.Container>
   );
 }
+
+export default RenderResults;
