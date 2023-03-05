@@ -18,7 +18,7 @@ function RenderResults(props) {
       description = "Medium risk";
     }
     else if (flag==0){
-      color="secondary"
+      color="#17C964"
       description = "Low risk";
     }
     return (
@@ -31,7 +31,6 @@ function RenderResults(props) {
           <Text h2 color={color}>
             {description} {warningEmoji}
           </Text>
-          <Spacer y="1"></Spacer>
           {flag >= 0 ? (
           <Popover>
           <Popover.Trigger>
@@ -61,7 +60,7 @@ function RenderResults(props) {
         <Factors text="Food Access" flag={props.signal.danger1} recommend="(link to database of food pantries)"/>
       </Grid>
       <Grid xs={6}>
-        <Factors text="Park Access" />
+        <Factors text="Park Access" flag={props.signal.danger2} recommend="information about park access" />
         </Grid>
 
       <Grid xs={6}>
