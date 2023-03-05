@@ -1,24 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import { NextUIProvider } from '@nextui-org/react';
+import { Button } from '@nextui-org/react';
+import Input from './components/Input';
+
+const Component = () => <Button>Click me</Button>;
+function App({ Component }) {
+  // 2. Use at the root of your app
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <NextUIProvider>
+      <Input />
+    </NextUIProvider>
   );
 }
 
