@@ -69,10 +69,10 @@ function RenderResults(props) {
 
   return (
     <Grid.Container gap={2} justify="center">
-      <Grid xs={6}>
+      <Grid xs={6} md={6}>
         <Factors text="Alcohol" flag={props.signal.danger} recommend="Stop drinking"/>
       </Grid>
-      <Grid xs={6}>
+      <Grid xs={6} md={6}>
         <Factors text="Physical" flag={props.signal.danger2} recommend="Work out"/>
       </Grid>
       <Grid xs={6}>
@@ -82,7 +82,7 @@ function RenderResults(props) {
         <Factors text="Park Access" flag={props.signal.danger2} recommend="information about park access" />
         </Grid>
 
-      <Grid xs={6}>
+        <Grid xs={12} md={6}>
       <Card variant="flat">
         <Card.Body>
           <Text h3 css={{ m: 0 }}>
@@ -95,7 +95,7 @@ function RenderResults(props) {
         </Card.Body>
       </Card>
       </Grid>
-      <Grid xs={6}>
+      <Grid xs={12} md={6}>
       <Card variant="flat">
         <Card.Body>
           <Text h3 css={{ m: 0 }}>
@@ -108,7 +108,7 @@ function RenderResults(props) {
         </Card.Body>
       </Card>
       </Grid>
-      <Grid md={12}>
+      <Grid xs={12}>
         <Card >
           <Card.Header><Text h3>Community Based Risk Model</Text><Tooltip content={tooltip}>
           <Button light auto>

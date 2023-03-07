@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import { Grid, Modal, Container, Row, Col, Card } from '@nextui-org/react';
+import { Grid, Modal, Loading, Container, Row, Col, Card } from '@nextui-org/react';
 import { Input, Dropdown, Spacer, Text, Button, Avatar } from '@nextui-org/react';
 
 function HealthInput(props) {
@@ -366,7 +366,7 @@ function HealthInput(props) {
               />
 
               <Spacer y={1.0} />
-              <Text h7 align="center">Rate your mental health: 0 (good) to 30 (poor)</Text>
+              <Text h7 align="center">Rate your mental health: 0 (poor) to 30 (good)</Text>
               <Input
                 clearable
                 Placeholder="Mental Health (0-30)"
@@ -559,7 +559,6 @@ function HealthInput(props) {
               <Text h7 align="center">Cholesterol</Text>
               <Input
                 clearable
-                required
                 Placeholder="Cholesterol"
                 value={cholesterol}
                 onChange={(event) =>
@@ -615,7 +614,7 @@ function HealthInput(props) {
                     <Dropdown.Item key="ChestPainType_ATA">Atypical Angina</Dropdown.Item>
                     <Dropdown.Item key="ChestPainType_NAP">Non-Anginal Pain</Dropdown.Item>
                     <Dropdown.Item key="ChestPainType_TA">Typical Angina</Dropdown.Item>
-                    <Dropdown.Item key="ChestPainType_ASY">Asymptomatic</Dropdown.Item>
+                    <Dropdown.Item key="ChestPainType_TA">Asymptomatic</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 

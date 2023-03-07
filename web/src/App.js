@@ -43,34 +43,34 @@ function App({ Component }) {
   const theme = createTheme({
     type: darkMode ? 'dark' : 'light',
   });
-  
+
   return (
     <NextUIProvider theme={theme}>
-      <Container lg gap={0}>
-        <Spacer y={2} />
-        <Row gap={2}>
-          <Col span={8}>
-            <RenderResults nums={result} signal={flags} />
-          </Col>
-          <Col span={4}>
-            <Card>
-              <Card.Body>
-                <HealthInput onSubmit={handleSubmit} />
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-        <Spacer y="2" />
-        <Col justify="center" align="center">
+      <Container lg>
+        <Spacer y="2"></Spacer>
+      <Grid.Container gap={2}>
+        <Grid sm={8} xs={12}>
+          <RenderResults nums={result} signal={flags} />
+        </Grid>
+        <Grid sm={4} xs={12}>
+          <Card>
+            <Card.Body>
+              <HealthInput onSubmit={handleSubmit} />
+            </Card.Body>
+          </Card>
+        </Grid>
+      </Grid.Container>
+      <Spacer y="2" />
+      <Col justify="center" align="center">
         <Button justify="center" align="center" flex="center"
-        onPress={toggleDark}
-        light>
+          onPress={toggleDark}
+          light>
           <Text
-          weight="bold"
-        >Made in Wisconsin with ❤️ and 🧀</Text>
+            weight="bold"
+          >Made in Wisconsin with ❤️ and 🧀</Text>
         </Button>
-        </Col>
-        <Spacer y="2" />
+      </Col>
+      <Spacer y="2" />
       </Container>
     </NextUIProvider>
   );
