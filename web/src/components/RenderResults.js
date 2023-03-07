@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, Text, Row, Popover, Button, Tooltip } from "@nextui-org/react";
+import { Grid, Card, Text, Row, Container, Popover, Button, Tooltip } from "@nextui-org/react";
 import {Spacer} from "@nextui-org/react"; // Import the Spacer component
 import {Progress} from "@nextui-org/react"; // Import the Progress component
 
@@ -48,6 +48,25 @@ function RenderResults(props) {
     );
   };
 
+  const tooltip = (
+    <Grid.Container
+      css={{
+        borderRadius: "14px",
+        padding: "0.75rem",
+        maxWidth: "400px",
+      }}
+    >
+<Text>
+        Community-based risk factors are factors that are related to the community or environment in which an individual lives 
+        and can contribute to the development of various health conditions, including heart disease.
+      
+        Socioeconomic factors: Low income, low education level, unemployment, 
+        and poverty are all associated with an increased risk of heart disease.
+      </Text>
+    </Grid.Container>
+  )
+  
+
   return (
     <Grid.Container gap={2} justify="center">
       <Grid xs={6}>
@@ -91,12 +110,7 @@ function RenderResults(props) {
       </Grid>
       <Grid md={12}>
         <Card >
-          <Card.Header><Text h3>Community Based Risk Model</Text><Tooltip content="Community-based 
-          risk factors are factors that are related to the community or environment in which an individual lives 
-          and can contribute to the development of various health conditions, including heart disease.
-          
-          Socioeconomic factors: Low income, low education level, unemployment, 
-          and poverty are all associated with an increased risk of heart disease.">
+          <Card.Header><Text h3>Community Based Risk Model</Text><Tooltip content={tooltip}>
           <Button light auto>
             What is this?
           </Button>
