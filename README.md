@@ -9,7 +9,7 @@ MyHeart is a proof-of-concept web application that empowers patients to take con
 Built by 4 UW-Madison students at their first-ever hackathon, MyHeart meets at the intersection machine learning, healthcare, and social good. Drawing from research done by New York University's School of Medicine, machine learning was combined with [social determinants of health](https://health.gov/healthypeople/priority-areas/social-determinants-health) to better contextulize the community and environment in which the patient comes from. This approach allows MyHeart to address important socioeconomic factors that are often overlooked when diagnosing a patient.
 
 
-[**Try it out**](https://icexorb.github.io/myheart/)
+[**Try out the demo!**](https://icexorb.github.io/myheart/)
 
 ## Technology
 MyHeart uses three models to provide personalized recommendations and risk assessments for users:
