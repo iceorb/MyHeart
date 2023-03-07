@@ -1,5 +1,5 @@
 # MyHeart
-***Built and demoed in MadHacks 2023***
+***Built and demoed at MadHacks 2023***
 
 ***Winner of Epic Systems Healthcare Empowerment Award***
 
