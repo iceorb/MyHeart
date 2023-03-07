@@ -6,13 +6,10 @@ return (
 
 
     <Navbar variant="sticky">
-        <Navbar.Brand> </Navbar.Brand>
         <Navbar.Content hideIn="xs" justify="center" align="center" variant="highlight">
           <Navbar.Link isActive href="#">Input</Navbar.Link>
           <Navbar.Link href="#">Results</Navbar.Link>
           <Navbar.Link href="#">Data</Navbar.Link>
-        </Navbar.Content>
-        <Navbar.Content>
         </Navbar.Content>
         </Navbar>
 
