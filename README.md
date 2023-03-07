@@ -35,10 +35,11 @@ pip install scikit-learn pandas flask flask-cors
 npm install
 ```
 
-Once you have installed the dependencies, start the required servers:
+Once you have installed the dependencies, start the required servers, ensure you are located in the /web/ directory:
 ```
-npm start
 python ml/main.py
+cd web
+npm start
 ```
 
 You can then access the application by navigating to http://localhost:3000 in your web browser.
