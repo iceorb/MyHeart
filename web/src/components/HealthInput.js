@@ -366,7 +366,7 @@ function HealthInput(props) {
               />
 
               <Spacer y={1.0} />
-              <Text h7 align="center">Rate your mental health: 0 (poor) to 30 (good)</Text>
+              <Text h7 align="center">Rate your mental health: 0 (good) to 30 (poor)</Text>
               <Input
                 clearable
                 Placeholder="Mental Health (0-30)"
@@ -615,7 +615,7 @@ function HealthInput(props) {
                     <Dropdown.Item key="ChestPainType_ATA">Atypical Angina</Dropdown.Item>
                     <Dropdown.Item key="ChestPainType_NAP">Non-Anginal Pain</Dropdown.Item>
                     <Dropdown.Item key="ChestPainType_TA">Typical Angina</Dropdown.Item>
-                    <Dropdown.Item key="ChestPainType_TA">Asymptomatic</Dropdown.Item>
+                    <Dropdown.Item key="ChestPainType_ASY">Asymptomatic</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 
