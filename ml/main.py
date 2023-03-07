@@ -9,14 +9,13 @@ CORS(app)
 
 model1_res = 45
 model2_res = 89
+rec = [-1,-1,-1,-1]
 
 
 @app.route('/api/form', methods=['POST'])
 def form():
-    global model1_res, model2_res
+    global model1_res, model2_res, rec
     data_json = request.get_json()
-
-    print(data_json['Age'])
 
     # Age,RestingBP,Cholesterol,FastingBS,MaxHR,Oldpeak,Sex_F,Sex_M,ChestPainType_ASY,ChestPainType_ATA,
     # ChestPainType_NAP,ChestPainType_TA,RestingECG_LVH,RestingECG_Normal,RestingECG_ST,ExerciseAngina_N,
@@ -130,12 +129,12 @@ def form():
             print("HIGH ")
         print(" ")
 
-    return {'result': {'model1': model1_res, 'model2': model2_res}}
+    return {'result': {'model1': model1_res, 'model2': model2_res}, 'flags': {'alc': rec[0], 'smoke': rec[1], 'pa': rec[2], 'sleep': rec[3]}}
 
 
 @app.route('/data')
 def say_hello_world():
-    return jsonify({'result': {'model1': model1_res, 'model2': model2_res}})
+    return jsonify({'result': {'model1': model1_res, 'model2': model2_res}, 'flags': {'alc': rec[0], 'smoke': rec[1], 'pa': rec[2], 'sleep': rec[3]}})
 
 
 if __name__ == '__main__':

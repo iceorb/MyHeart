@@ -3,23 +3,28 @@ import { Grid, Card, Text, Row, Container, Popover, Button, Tooltip } from "@nex
 import {Spacer} from "@nextui-org/react"; // Import the Spacer component
 import {Progress} from "@nextui-org/react"; // Import the Progress component
 
+
 function RenderResults(props) {
   const Factors = ({ text, flag, recommend}) => {
     let color = "default";
     let warningEmoji = "";
     let description = "-";
-    if (flag == 2) {
+    if (flag === 2) {
       color="error";
       warningEmoji = "⚠️ ";
       description = "High risk";
     }
-    else if (flag==1){
+    else if (flag===1){
       color="warning"
-      description = "Medium risk";
+      description = "Moderate risk";
     }
-    else if (flag==0){
+    else if (flag===0){
       color="#17C964"
       description = "Low risk";
+    }
+    else {
+      color="#808080"
+      description = "No data";
     }
     return (
       <Card variant="flat">
@@ -70,16 +75,16 @@ function RenderResults(props) {
   return (
     <Grid.Container gap={2} justify="center">
       <Grid xs={6} md={6}>
-        <Factors text="Alcohol" flag={props.signal.danger} recommend="Stop drinking"/>
+        <Factors text="Alcohol" flag={props.signal.alc} recommend="Stop drinking"/>
       </Grid>
       <Grid xs={6} md={6}>
-        <Factors text="Physical" flag={props.signal.danger2} recommend="Work out"/>
+        <Factors text="Smoking" flag={props.signal.smoke} recommend="Quit smoking"/>
       </Grid>
       <Grid xs={6}>
-        <Factors text="Food Access" flag={props.signal.danger1} recommend="(link to database of food pantries)"/>
+        <Factors text="Physical Activity" flag={props.signal.pa} recommend="Exercise more"/>
       </Grid>
       <Grid xs={6}>
-        <Factors text="Park Access" flag={props.signal.danger2} recommend="information about park access" />
+        <Factors text="Sleep" flag={props.signal.sleep} recommend="Getting more sleep and a consistent sleep schedule." />
         </Grid>
 
         <Grid xs={12} md={6}>

@@ -12,6 +12,13 @@ import Nav from './components/Nav';
 
 function App({ Component }) {
   const [result, setResult] = useState(0);
+  const [flags, setFlags] = useState({
+    alc:-1,
+    smoke:-1,
+    pa:-1,
+    sleep:-1
+  });
+
   const handleSubmit = (data) => {
     console.log(data);
     fetch('http://127.0.0.1:5000/data', {
@@ -25,14 +32,11 @@ function App({ Component }) {
   useEffect(() => {
     fetch('/data').then(res => res.json()).then(data => {
       setResult(data.result);
+      setFlags(data.flags);
     });
-  }, []);
+  }, [flags, result]);
+  // PLEASE FIX: dependency causing it to go into an infinite loop of calling flask back-end
 
-  const flags = {
-    danger: 2,
-    danger1: 1,
-    danger2: 0
-  }
 
   const [darkMode, setDarkMode] = useState(false);
 

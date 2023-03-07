@@ -380,7 +380,7 @@ function HealthInput(props) {
               <Text h7 align="center">Physical activity in the past 30 days?</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
-                    {physicalActivity ? physicalActivity : "Physical Activity (past 30 days)"}
+                    {physicalActivity ? physicalActivity : "Physical Activity"}
                   </Dropdown.Button>
                   <Dropdown.Menu
                     disallowEmptySelection="true"
@@ -473,8 +473,8 @@ function HealthInput(props) {
                     selectionMode="single"
                     onSelectionChange={setDiabetic}
                   >
-                    <Dropdown.Item key="Diabetic_0">No</Dropdown.Item>
                     <Dropdown.Item key="Diabetic_1">Yes</Dropdown.Item>
+                    <Dropdown.Item key="Diabetic_0">No</Dropdown.Item>
                     <Dropdown.Item key="Diabetic_No, borderline diabetes">Borderline</Dropdown.Item>
                     <Dropdown.Item key="Diabetic_Yes (during pregnancy)">Yes,during pregnancy</Dropdown.Item>
                   </Dropdown.Menu>

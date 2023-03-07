@@ -54,7 +54,7 @@ def recommend(file,heart, smoke, alc, phys, sleep):
         elif heart == 2:
             output[3] = 2
  
-    return [heart, output[0], output[1],output[2],output[3]]
+    return [output[0], output[1],output[2],output[3]]
 
    
 
