@@ -21,7 +21,7 @@ import Nav from './components/Nav';
 
 function App({ Component }) {
   useEffect(() => {
-    document.title = 'MyHeart ';
+    document.title = 'MyHeart';
   }, []);
 
   const [result, setResult] = useState(0);
