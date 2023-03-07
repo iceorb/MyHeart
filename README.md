@@ -49,4 +49,4 @@ To use the MyHeart model, simply submit your healthcare information, including b
 
 ## DISCLAIMER
 
-MyHeart does NOT collect nor store any data outside of your device. NO connections are made to any external APIs or servers. You data is NEVER sent or stored outside of the device you are running MyHeart on.
+MyHeart does NOT collect nor store any data outside of your device. You data is NEVER sent or stored outside of the device you are running MyHeart on.
