@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 // Comments to disable debug data in terminal
 // eslint-disable-next-line
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 
 // eslint-disable-next-line
