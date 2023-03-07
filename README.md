@@ -53,3 +53,5 @@ You results and recommendations will be printed in the terminal running the Pyth
 ## DISCLAIMER
 
 MyHeart does NOT collect nor store any data outside of your device. You data is NEVER sent or stored outside of the device you are running MyHeart on.
+
+In addition to the above disclaimer, it is important to note that MyHeart is not intended to provide medical advice or diagnosis. The predictions and recommendations provided by the application are based on statistical models and should not be used as a substitute for professional medical advice or treatment. Users should always consult with a qualified healthcare professional before making any changes to their healthcare regimen. MyHeart is intended to be a tool to help patients take control of their own health, but it is not a substitute for professional medical advice or treatment.
