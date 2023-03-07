@@ -67,7 +67,7 @@ function RenderResults(props) {
         <Factors text="Physical Activity" flag={props.signal.pa} recommend="Exercise more"/>
       </Grid>
       <Grid xs={6}>
-        <Factors text="Sleep" flag={props.signal.sleep} recommend="Getting more sleep and a consistent sleep schedule." />
+        <Factors text="Sleep" flag={props.signal.sleep} recommend="Get more sleep and a consistent sleep schedule." />
         </Grid>
 
         <Grid xs={12} md={6}>

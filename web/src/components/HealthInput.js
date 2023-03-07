@@ -11,7 +11,6 @@ function HealthInput(props) {
 
   const closeHandler = () => {
     setVisible(false);
-    console.log("closed");
   };
 
 //  const {
@@ -39,7 +38,7 @@ function HealthInput(props) {
     [angina]
   );
   const [oldPeak, setOldPeak] = useState(''); // Oldpeak 
-  const [chestPain, setChestPain] = useState(''); // ChestPain ('ChestPainType_ATA' or 'ChestPainType_NAP' or 'ChestPainType_TA')
+  const [chestPain, setChestPain] = useState(''); // ChestPain ('ChestPainType_ATA' or 'ChestPainType_NAP' or 'ChestPainType_ASY' or 'ChestPainType_TA')
 
   const selectedChestPain = React.useMemo(
     () => Array.from(chestPain).join(", ").replaceAll("_", " "),
@@ -142,6 +141,34 @@ function HealthInput(props) {
     [genHealth]
   );
 
+  const randomizeData = () => {
+    setAge('18');
+    setSex('male');
+    setRestingBP('80');
+    setCholesterol('190');
+    setFastingBS('yes');
+    setRace('Race_White')
+    setSmoking('no');
+    setAlcoholDrinking('no');
+    setSleepTime('8');
+    setBMI('20');
+    setGenHealth('GenHealth_Good');
+    setPhysicalHealth('15');
+    setMentalHealth('15');
+    setPhysicalActivity('yes');
+    setDiffWalking('no');
+    setAsthma('no');
+    setSkinCancer('no');
+    setKidneyDisease('no');
+    setDiabetic('Diabetic_0');
+    setStroke('no');
+    setAngina('no');
+    setMaxHR('180');
+    setRestingECG('RestingECG_Normal');
+    setST_Slope('ST_Slope_Flat');
+    setChestPain('ChestPainType_TA');
+    setOldPeak('0')
+  };
 
 
   const handleSubmit = (event) => {
@@ -236,6 +263,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Age (18+)</Text>
               <Input
+                type='number'
                 clearable
                 Placeholder="Age"
                 value={age}
@@ -313,6 +341,7 @@ function HealthInput(props) {
                <Spacer y={1.0} />
               <Text h7 align="center">How much sleep (in hours) do you get?</Text>
                 <Input
+                  type='number'
                   clearable
                   Placeholder="Sleep Time (hrs)"
                   value={sleepTime}
@@ -324,6 +353,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Body Mass Index</Text>
               <Input
+                type='number'
                 clearable
                 Placeholder="BMI"
                 value={BMI}
@@ -358,6 +388,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Rate your physical health: 0 (good) to 30 (poor)</Text>
               <Input
+                type='number'
                 clearable
                 Placeholder="Physical Health (0-30)"
                 value={physicalHealth}
@@ -367,8 +398,9 @@ function HealthInput(props) {
               />
 
               <Spacer y={1.0} />
-              <Text h7 align="center">Rate your mental health: 0 (poor) to 30 (good)</Text>
+              <Text h7 align="center">Rate your mental health: 0 (good) to 30 (poor)</Text>
               <Input
+                type='number'
                 clearable
                 Placeholder="Mental Health (0-30)"
                 value={mentalHealth}
@@ -537,6 +569,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Resting BP</Text>
               <Input
+                type='number'
                 clearable
                 Placeholder="Resting BP"
                 value={restingBP}
@@ -548,6 +581,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Max Heart Rate</Text>
               <Input
+                type='number'
                 clearable
                 Placeholder="Max HR"
                 value={maxHR}
@@ -559,6 +593,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Cholesterol</Text>
               <Input
+                type='number'
                 clearable
                 Placeholder="Cholesterol"
                 value={cholesterol}
@@ -622,6 +657,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Old Peak</Text>
               <Input
+                type='number'
                 clearable
                 Placeholder="Old Peak"
                 value={oldPeak}
@@ -635,10 +671,27 @@ function HealthInput(props) {
         <Spacer y={1} />
       </Row>
       <Spacer y={1} />
+      <Row gap={1}>
+      <Col justify="center" align="center">
       <Button type="submit"
+        align='left'
         onClick={closeHandler}
         >Calculate</Button>
-        </form>
+      </Col>
+
+      <Spacer y={1} />
+
+      <Col justify="center" align="center">
+      <Button type="random"
+        align='right'
+        onClick={randomizeData}
+        >Autofill Default Data</Button>
+      </Col>
+
+      </Row>
+
+      </form>
+
       </Container>
       </Modal.Body>
       </Modal>

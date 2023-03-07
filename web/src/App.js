@@ -97,8 +97,13 @@ function App({ Component }) {
           light>
           <Text
             weight="bold"
-          >Toggle Theme | Made in Wisconsin with ❤️ and 🧀</Text>
+          >Toggle Theme</Text>
         </Button>
+      </Col>
+      <Col justify="center" align="center">
+          <Text
+            weight="bold"
+          >Made in Wisconsin with ❤️ and 🧀</Text>
       </Col>
       <Spacer y="2" />
       </Container>
