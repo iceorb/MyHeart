@@ -237,6 +237,7 @@ function HealthInput(props) {
               <Input
                 clearable
                 Placeholder="Age"
+                value={age}
                 onChange={(event) =>
                   setAge(event.target.value)
                 }
@@ -313,6 +314,7 @@ function HealthInput(props) {
                 <Input
                   clearable
                   Placeholder="Sleep Time (hrs)"
+                  value={sleepTime}
                   onChange={(event) =>
                     setSleepTime(event.target.value)
                   }
@@ -323,6 +325,7 @@ function HealthInput(props) {
               <Input
                 clearable
                 Placeholder="BMI"
+                value={BMI}
                 onChange={(event) =>
                   setBMI(event.target.value)
                 }
@@ -356,6 +359,7 @@ function HealthInput(props) {
               <Input
                 clearable
                 Placeholder="Physical Health (0-30)"
+                value={physicalHealth}
                 onChange={(event) =>
                   setPhysicalHealth(event.target.value)
                 }
@@ -366,6 +370,7 @@ function HealthInput(props) {
               <Input
                 clearable
                 Placeholder="Mental Health (0-30)"
+                value={mentalHealth}
                 onChange={(event) =>
                   setMentalHealth(event.target.value)
                 }
@@ -533,6 +538,7 @@ function HealthInput(props) {
               <Input
                 clearable
                 Placeholder="Resting BP"
+                value={restingBP}
                 onChange={(event) =>
                   setRestingBP(event.target.value)
                 }
@@ -543,6 +549,7 @@ function HealthInput(props) {
               <Input
                 clearable
                 Placeholder="Max HR"
+                value={maxHR}
                 onChange={(event) =>
                   setMaxHR(event.target.value)
                 }
@@ -552,7 +559,9 @@ function HealthInput(props) {
               <Text h7 align="center">Cholesterol</Text>
               <Input
                 clearable
+                required
                 Placeholder="Cholesterol"
+                value={cholesterol}
                 onChange={(event) =>
                   setCholesterol(event.target.value)
                 }
@@ -615,6 +624,7 @@ function HealthInput(props) {
               <Input
                 clearable
                 Placeholder="Old Peak"
+                value={oldPeak}
                 onChange={(event) =>
                   setOldPeak(event.target.value)
                 }
