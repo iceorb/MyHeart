@@ -47,6 +47,8 @@ You can then access the application by navigating to http://localhost:3000 in yo
 
 To use the MyHeart model, simply submit your healthcare information, including biological, behavioral, and socioeconomic factors. The MyHeart model will then give you proactive suggestions and information to improve your cardiovascular health.
 
+You results and recommendation will be printed in the terminal running the Python script. GUI results displayed on the front-end is planned but not implemented yet.
+
 ## DISCLAIMER
 
 MyHeart does NOT collect nor store any data outside of your device. You data is NEVER sent or stored outside of the device you are running MyHeart on.
