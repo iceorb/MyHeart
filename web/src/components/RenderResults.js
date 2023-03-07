@@ -1,4 +1,6 @@
 import React from 'react';
+
+// eslint-disable-next-line
 import { Grid, Card, Text, Row, Container, Popover, Button, Tooltip } from "@nextui-org/react";
 import {Spacer} from "@nextui-org/react"; // Import the Spacer component
 import {Progress} from "@nextui-org/react"; // Import the Progress component
@@ -53,25 +55,6 @@ function RenderResults(props) {
     );
   };
 
-  const tooltip = (
-    <Grid.Container
-      css={{
-        borderRadius: "14px",
-        padding: "0.75rem",
-        maxWidth: "400px",
-      }}
-    >
-<Text>
-        Community-based risk factors are factors that are related to the community or environment in which an individual lives 
-        and can contribute to the development of various health conditions, including heart disease.
-      
-        Socioeconomic factors: Low income, low education level, unemployment, 
-        and poverty are all associated with an increased risk of heart disease.
-      </Text>
-    </Grid.Container>
-  )
-  
-
   return (
     <Grid.Container gap={2} justify="center">
       <Grid xs={6} md={6}>
@@ -91,7 +74,7 @@ function RenderResults(props) {
       <Card variant="flat">
         <Card.Body>
           <Text h3 css={{ m: 0 }}>
-            Biological Model
+            Health Model
           </Text>
           <Spacer y=".5" />
           <Progress value={props.nums.model1} shadow color="warning" status="warning" />
@@ -104,7 +87,7 @@ function RenderResults(props) {
       <Card variant="flat">
         <Card.Body>
           <Text h3 css={{ m: 0 }}>
-            Biological Model 2
+            Genetic Model
           </Text>
           <Spacer y=".5" />
           <Progress value={props.nums.model2} shadow color="error" status="error" />
@@ -113,22 +96,7 @@ function RenderResults(props) {
         </Card.Body>
       </Card>
       </Grid>
-      <Grid xs={12}>
-        <Card >
-          <Card.Header><Text h3>Community Based Risk Model</Text><Tooltip content={tooltip}>
-          <Button light auto>
-            What is this?
-          </Button>
-        </Tooltip></Card.Header>
-          <Card.Divider />
-          <Card.Body>
-          <Progress value="85" shadow color="error" status="error" />
-            <Text h4>85%</Text>
-          </Card.Body>
-        </Card>
-      </Grid>
     </Grid.Container>
   );
 }
-
 export default RenderResults;

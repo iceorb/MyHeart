@@ -1,13 +1,21 @@
 //import React from "react";
 import React, { useState, useEffect } from 'react';
 //import { useState } from 'react';
+
+// Comments to disable debug data in terminal
+// eslint-disable-next-line
 import logo from './logo.svg';
 import './App.css';
 
+// eslint-disable-next-line
 import { NextUIProvider, Navbar, Button } from '@nextui-org/react';
+
+// eslint-disable-next-line
 import { createTheme, Card, Col, Row, Grid, Container, Spacer, Text } from '@nextui-org/react';
 import HealthInput from './components/HealthInput';
 import RenderResults from './components/RenderResults';
+
+// eslint-disable-next-line
 import Nav from './components/Nav';
 
 function App({ Component }) {
@@ -19,6 +27,9 @@ function App({ Component }) {
     sleep:-1
   });
 
+  // Count to update data
+  const [count, setCount] = useState(-1);
+
   const handleSubmit = (data) => {
     console.log(data);
     fetch('http://127.0.0.1:5000/data', {
@@ -29,19 +40,24 @@ function App({ Component }) {
       method: 'post',
     })
   };
+
+  // update data and fetch info from backend
   useEffect(() => {
     fetch('/data').then(res => res.json()).then(data => {
       setResult(data.result);
       setFlags(data.flags);
     });
-  }, [flags, result]);
-  // PLEASE FIX: dependency causing it to go into an infinite loop of calling flask back-end
-
+  }, [count]);
 
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDark = () => {
     setDarkMode(!darkMode);
+  };
+
+  // update count to update data
+  const updateCount = () => {
+    setCount(count + 1);
   };
 
   const theme = createTheme({
@@ -65,13 +81,23 @@ function App({ Component }) {
         </Grid>
       </Grid.Container>
       <Spacer y="2" />
+      <Col justify="center" align="left">
+        <Button auto shadow color="red" justify="center" align="center" flex="center"
+          onPress={updateCount}
+          light>
+          <Text h4 align="left"
+            weight="bold"
+          >Update Recommendations</Text>
+        </Button>
+      </Col>
+      <Spacer y="2" />
       <Col justify="center" align="center">
         <Button justify="center" align="center" flex="center"
           onPress={toggleDark}
           light>
           <Text
             weight="bold"
-          >Made in Wisconsin with ❤️ and 🧀</Text>
+          >Toggle Theme | Made in Wisconsin with ❤️ and 🧀</Text>
         </Button>
       </Col>
       <Spacer y="2" />

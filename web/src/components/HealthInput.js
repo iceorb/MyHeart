@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from 'react';
+// eslint-disable-next-line
 import { Grid, Modal, Loading, Container, Row, Col, Card } from '@nextui-org/react';
 import { Input, Dropdown, Spacer, Text, Button, Avatar } from '@nextui-org/react';
 
@@ -215,7 +216,7 @@ function HealthInput(props) {
       <Text h2 align="center" weight="bold">Bucky Badger</Text>
 
       <Button auto shadow onPress={handler}>
-        Update Data
+        Update Profile
       </Button>
 
 
@@ -614,7 +615,7 @@ function HealthInput(props) {
                     <Dropdown.Item key="ChestPainType_ATA">Atypical Angina</Dropdown.Item>
                     <Dropdown.Item key="ChestPainType_NAP">Non-Anginal Pain</Dropdown.Item>
                     <Dropdown.Item key="ChestPainType_TA">Typical Angina</Dropdown.Item>
-                    <Dropdown.Item key="ChestPainType_TA">Asymptomatic</Dropdown.Item>
+                    <Dropdown.Item key="ChestPainType_ASY">Asymptomatic</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 
@@ -641,14 +642,7 @@ function HealthInput(props) {
       </Container>
       </Modal.Body>
       </Modal>
-
-
-
       <Spacer y="2" />
-
-
-
-
       <Grid.Container gap={3} justify="center">
       <Grid xs={6}>
         <MockItem text="Age" variable={age} />

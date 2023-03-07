@@ -7,8 +7,8 @@ from predict_mod2 import load_model2
 app = Flask(__name__)
 CORS(app)
 
-model1_res = 45
-model2_res = 89
+model1_res = 0
+model2_res = 0
 rec = [-1,-1,-1,-1]
 
 
@@ -17,9 +17,6 @@ def form():
     global model1_res, model2_res, rec
     data_json = request.get_json()
 
-    # Age,RestingBP,Cholesterol,FastingBS,MaxHR,Oldpeak,Sex_F,Sex_M,ChestPainType_ASY,ChestPainType_ATA,
-    # ChestPainType_NAP,ChestPainType_TA,RestingECG_LVH,RestingECG_Normal,RestingECG_ST,ExerciseAngina_N,
-    # ExerciseAngina_Y,ST_Slope_Down,ST_Slope_Flat,ST_Slope_Up
     mod1_data = [int(data_json['Age']),
                  int(data_json['RestingBP']),
                  int(data_json['Cholesterol']),
@@ -90,51 +87,28 @@ def form():
     output1 = load_model1(mod1_data)
     output2 = load_model2(mod2_data)
 
+    print(output1)
+    print(output2)
+
     output_final = int(output1[0]) + int(output2[0])
 
-    model1_res = 49
-    model2_res = 26
-
-    print(" ")
-    print("Prediction: ")
-    if output_final == 0:
-        print("LOW RISK OF HEART DISEASE")
-
-    elif output_final == 1:
-        print("MODERATE RISK OF HEART DISEASE")
-
-    elif output_final == 2:
-        print("HIGH RISK OF HEART DISEASE")
-
-    else:
-        print("Invalid")
-
-    print(" ")
+    model1_res = 100 if int(output1[0]) == 1 else 0
+    model2_res = 100 if int(output2[0]) == 1 else 0
 
     from Recommendation import recommend
 
-    print("Potential problems:")
+    # print("Potential problems:")
     rec = recommend('Data/heart_disease_new_cleaned.csv', output_final, mod2_data[1], mod2_data[2], mod2_data[7],
                     mod2_data[8])
-    risks = ['Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'SleepTime']
-    for i in range(len(risks)):
-        print(risks[i] + ": ")
-        if rec[i] == 0:
-            print("LOW")
 
-        elif rec[i] == 1:
-            print("MODERATE")
-
-        elif rec[i] == 2:
-            print("HIGH ")
-        print(" ")
-
-    return {'result': {'model1': model1_res, 'model2': model2_res}, 'flags': {'alc': rec[0], 'smoke': rec[1], 'pa': rec[2], 'sleep': rec[3]}}
+    rec[0] = 2 if rec[0] == 1 else rec[0]
+    print(rec)
+    return {'result': {'model1': model1_res, 'model2': model2_res}, 'flags': {'smoke': rec[0], 'alc': rec[1], 'pa': rec[2], 'sleep': rec[3]}}
 
 
 @app.route('/data')
 def say_hello_world():
-    return jsonify({'result': {'model1': model1_res, 'model2': model2_res}, 'flags': {'alc': rec[0], 'smoke': rec[1], 'pa': rec[2], 'sleep': rec[3]}})
+    return jsonify({'result': {'model1': model1_res, 'model2': model2_res}, 'flags': {'smoke': rec[0], 'alc': rec[1], 'pa': rec[2], 'sleep': rec[3]}})
 
 
 if __name__ == '__main__':
