@@ -13,6 +13,7 @@ Built by 4 UW-Madison students at their first-ever hackathon, MyHeart meets at t
 [**Try out the demo!**](https://icexorb.github.io/myheart/)
 
 <img src="https://github.com/icexorb/myheart/blob/main/Demo/image1.png?raw=true" width="720"/>
+<img src="https://github.com/icexorb/myheart/blob/main/Demo/image3.png?raw=true" width="720"/>
 <img src="https://github.com/icexorb/myheart/blob/main/Demo/image2.png?raw=true" width="720"/>
 
 ## Technology
