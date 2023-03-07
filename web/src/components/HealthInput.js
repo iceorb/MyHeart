@@ -615,7 +615,7 @@ function HealthInput(props) {
                     <Dropdown.Item key="ChestPainType_ATA">Atypical Angina</Dropdown.Item>
                     <Dropdown.Item key="ChestPainType_NAP">Non-Anginal Pain</Dropdown.Item>
                     <Dropdown.Item key="ChestPainType_TA">Typical Angina</Dropdown.Item>
-                    <Dropdown.Item key="ChestPainType_TA">Asymptomatic</Dropdown.Item>
+                    <Dropdown.Item key="ChestPainType_ASY">Asymptomatic</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 
