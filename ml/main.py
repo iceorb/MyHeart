@@ -98,6 +98,7 @@ def form():
     rec = recommend('Data/heart_disease_new_cleaned.csv', output_final, mod2_data[1], mod2_data[2], mod2_data[7],
                     mod2_data[8])
 
+    # Change smoking from moderate to high risk
     rec[0] = 2 if rec[0] == 1 else rec[0]
 
     return {'result': {'model1': model1_res, 'model2': model2_res}, 'flags': {'smoke': rec[0], 'alc': rec[1], 'pa': rec[2], 'sleep': rec[3]}}
