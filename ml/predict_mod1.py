@@ -3,9 +3,9 @@ import pandas as pd
 
 
 def load_model1(data):
-    loaded_model = joblib.load('flask/Models/model1.mdl')
+    loaded_model = joblib.load('Models/model1.mdl')
 
-    #example_data = [47.0, 160.0, 263.0, 0.0, 174.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+    # data = [47.0, 160.0, 263.0, 0.0, 174.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
 
     X_new = pd.DataFrame(
         [data])

@@ -13,9 +13,9 @@ function HealthInput(props) {
     console.log("closed");
   };
 
-  const {
-    onSubmit,
-  } = props
+//  const {
+//    onSubmit,
+//  } = props
 
   const [age, setAge] = useState(''); // Age
   const [sex, setSex] = useState(''); // Sex (male or female)
@@ -25,7 +25,11 @@ function HealthInput(props) {
   );
   const [restingBP, setRestingBP] = useState(''); // Resting Blood Pressure
   const [cholesterol, setCholesterol] = useState(''); // Cholesterol Level
-  const [fastingBS, setFastingBS] = useState(''); // Fasting Blood Sugar
+  const [fastingBS, setFastingBS] = useState(''); // Exercise-Induced Angina (yes or no)
+  const selectedFastingBS = React.useMemo(
+    () => Array.from(fastingBS).join(", ").replaceAll("_", " "),
+    [fastingBS]
+  );
   const [maxHR, setMaxHR] = useState(''); // Maximum Heart Rate Achieved
   const [angina, setAngina] = useState(''); // Exercise-Induced Angina (yes or no)
   
@@ -141,34 +145,42 @@ function HealthInput(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = {
-      Age: age,
-      Sex: selectedSex,
-      RestingBP: restingBP,
-      Cholesterol: cholesterol,
-      FastingBS: fastingBS,
-      MaxHR: maxHR,
-      ExerciseAngina: selectedAngina,
-      Oldpeak: oldPeak,
-      ChestPain: selectedChestPain,
-      RestingECG: selectedRestingECG,
-      ST_Slope: selectedST_Slope,
-      BMI: BMI,
-      Smoking: selectedSmoking,
-      AlcoholDrinking: selectedAlcoholDrinking,
-      Stroke: selectedStroke,
-      PhysicalHealth: physicalHealth,
-      MentalHealth: mentalHealth,
-      DiffWalking: selectedDiffWalking,
-      PhysicalActivity: selectedPhysicalActivity,
-      SleepTime: sleepTime,
-      Asthma: selectedAsthma,
-      KidneyDisease: selectedKidneyDisease,
-      SkinCancer: selectedSkinCancer,
-      Diabetic: selectedDiabetic,
-      GenHealth: selectedGenHealth
-    };
-    onSubmit(data)
+    fetch('http://localhost:5000/api/form', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          Age: age,
+          Sex: selectedSex,
+          RestingBP: restingBP,
+          Cholesterol: cholesterol,
+          FastingBS: selectedFastingBS,
+          MaxHR: maxHR,
+          ExerciseAngina: selectedAngina,
+          Oldpeak: oldPeak,
+          ChestPain: selectedChestPain,
+          RestingECG: selectedRestingECG,
+          ST_Slope: selectedST_Slope,
+          BMI: BMI,
+          Smoking: selectedSmoking,
+          AlcoholDrinking: selectedAlcoholDrinking,
+          Stroke: selectedStroke,
+          PhysicalHealth: physicalHealth,
+          MentalHealth: mentalHealth,
+          DiffWalking: selectedDiffWalking,
+          PhysicalActivity: selectedPhysicalActivity,
+          SleepTime: sleepTime,
+          Asthma: selectedAsthma,
+          KidneyDisease: selectedKidneyDisease,
+          SkinCancer: selectedSkinCancer,
+          Diabetic: selectedDiabetic,
+          GenHealth: selectedGenHealth,
+          Race: selectedRace
+        })
+    })
+        .then(response => response.json())
   };
 
 
@@ -219,7 +231,9 @@ function HealthInput(props) {
             <form onSubmit={handleSubmit}>
         <Row gap={1}>
             <Col justify="center" align="center">
-              <Spacer y={0.5} />
+            <Text h4 align="center">General Patient Data</Text>
+              <Spacer y={1.0} />
+              <Text h7 align="center">Age (18+)</Text>
               <Input
                 clearable
                 Placeholder="Age"
@@ -228,7 +242,8 @@ function HealthInput(props) {
                 }
               />
 
-              <Spacer y={0.5} />
+              <Spacer y={1.0} />
+              <Text h7 align="center">Sex</Text>
               <Dropdown>
                 <Dropdown.Button flat css={{ tt: "capitalize" }}>
                   {sex ? sex : "Sex"}
@@ -243,125 +258,27 @@ function HealthInput(props) {
                 </Dropdown.Menu>
               </Dropdown>
 
-              <Spacer y={0.5} />
-              <Input
-                clearable
-                Placeholder="Resting BP"
-                onChange={(event) =>
-                  setRestingBP(event.target.value)
-                }
-              />
-
-              <Spacer y={0.5} />
-              <Input
-                clearable
-                Placeholder="Cholesterol"
-                onChange={(event) =>
-                  setCholesterol(event.target.value)
-                }
-              />
-
-              <Spacer y={0.5} />
-              <Input
-                clearable
-                Placeholder="Fasting BS"
-                onChange={(event) =>
-                  setFastingBS(event.target.value)
-                }
-              />
-
-              <Spacer y={0.5} />
-              <Input
-                clearable
-                Placeholder="Max HR"
-                onChange={(event) =>
-                  setMaxHR(event.target.value)
-                }
-              />
-
-              <Spacer y={0.5} />
-              <Dropdown>
-                <Dropdown.Button flat css={{ tt: "capitalize" }}>
-                  {angina ? angina : "Exercise Induced Angina"}
-                </Dropdown.Button>
-                <Dropdown.Menu
-                  disallowEmptySelection="true"
-                  selectionMode="single"
-                  onSelectionChange={setAngina}
-                >
-                  <Dropdown.Item key="yes">Yes</Dropdown.Item>
-                  <Dropdown.Item key="no">No</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-
-              <Spacer y={0.5} />
-              <Input
-                clearable
-                Placeholder="Old Peak"
-                onChange={(event) =>
-                  setOldPeak(event.target.value)
-                }
-              />
-
-              <Spacer y={0.5} />
+               <Spacer y={1.0} />
+              <Text h7 align="center">Race</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
-                    {chestPain ? chestPain : "Chest Pain"}
+                    {race ? race : "Race"}
                   </Dropdown.Button>
                   <Dropdown.Menu
                     disallowEmptySelection="true"
                     selectionMode="single"
-                    onSelectionChange={setChestPain}
+                    onSelectionChange={setRace}
                   >
-                    <Dropdown.Item key="ChestPainType_ATA">ATA</Dropdown.Item>
-                    <Dropdown.Item key="ChestPainType_NAP">NAP</Dropdown.Item>
-                    <Dropdown.Item key="ChestPainType_TA">TA</Dropdown.Item>
+                    <Dropdown.Item key="Race_American Indian/Alaskan Native">American Indian/Alaskan Native</Dropdown.Item>
+                    <Dropdown.Item key="Race_Asian">Asian</Dropdown.Item>
+                    <Dropdown.Item key="Race_Black">Black</Dropdown.Item>
+                    <Dropdown.Item key="Race_White">White</Dropdown.Item>
+                    <Dropdown.Item key="Race_Hispanic">Hispanic</Dropdown.Item>
+                    <Dropdown.Item key="Race_Other">Other</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-            </Col>
-            <Col justify="center" align="center">
-              <Spacer y={0.5} />
-                <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
-                    {restingECG ? restingECG : "Resting ECG"}
-                  </Dropdown.Button>
-                  <Dropdown.Menu
-                    disallowEmptySelection="true"
-                    selectionMode="single"
-                    onSelectionChange={setRestingECG}
-                  >
-                    <Dropdown.Item key="RestingECG_LVH">LVH</Dropdown.Item>
-                    <Dropdown.Item key="RestingECG_Normal">Normal</Dropdown.Item>
-                    <Dropdown.Item key="RestingECG_ST">ST</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-
-              <Spacer y={0.5} />
-                <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
-                    {ST_Slope ? ST_Slope : "ST Slope"}
-                  </Dropdown.Button>
-                  <Dropdown.Menu
-                    disallowEmptySelection="true"
-                    selectionMode="single"
-                    onSelectionChange={setST_Slope}
-                  >
-                    <Dropdown.Item key="ST_Slope_Down">Down</Dropdown.Item>
-                    <Dropdown.Item key="ST_Slope_Flat">Flat</Dropdown.Item>
-                    <Dropdown.Item key="ST_Slope_Up">Up</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-
-              <Spacer y={0.5} />
-              <Input
-                clearable
-                Placeholder="BMI"
-                onChange={(event) =>
-                  setBMI(event.target.value)
-                }
-              />
-
-              <Spacer y={0.5} />
+              <Spacer y={1.0} />
+              <Text h7 align="center">Do you smoke?</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
                     {smoking ? smoking : "Smoking"}
@@ -375,8 +292,9 @@ function HealthInput(props) {
                     <Dropdown.Item key="no">No</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                
-              <Spacer y={0.5} />
+
+              <Spacer y={1.0} />
+              <Text h7 align="center">Do you consume alcohol?</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
                     {alcoholDrinking ? alcoholDrinking : "Drink Alchohol"}
@@ -390,23 +308,51 @@ function HealthInput(props) {
                     <Dropdown.Item key="no">No</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
+               <Spacer y={1.0} />
+              <Text h7 align="center">How much sleep (in hours) do you get?</Text>
+                <Input
+                  clearable
+                  Placeholder="Sleep Time (hrs)"
+                  onChange={(event) =>
+                    setSleepTime(event.target.value)
+                  }
+                />
 
-              <Spacer y={0.5} />
+              <Spacer y={1.0} />
+              <Text h7 align="center">Body Mass Index</Text>
+              <Input
+                clearable
+                Placeholder="BMI"
+                onChange={(event) =>
+                  setBMI(event.target.value)
+                }
+              />
+                <Spacer y={0.5} />
+            </Col>
+
+            <Col justify="center" align="center">
+            <Text h4 align="center">General Health</Text>
+                <Spacer y={1.0} />
+              <Text h7 align="center">How would you rate your general health?</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
-                    {stroke ? stroke : "Stroke"}
+                    {genHealth ? genHealth : "General Health Level"}
                   </Dropdown.Button>
                   <Dropdown.Menu
                     disallowEmptySelection="true"
                     selectionMode="single"
-                    onSelectionChange={setStroke}
+                    onSelectionChange={setGenHealth}
                   >
-                    <Dropdown.Item key="yes">Yes</Dropdown.Item>
-                    <Dropdown.Item key="no">No</Dropdown.Item>
+                    <Dropdown.Item key="GenHealth_Excellent">Excellent</Dropdown.Item>
+                    <Dropdown.Item key="GenHealth_Very good">Very Good</Dropdown.Item>
+                    <Dropdown.Item key="GenHealth_Good">Good</Dropdown.Item>
+                    <Dropdown.Item key="GenHealth_Fair">Fair</Dropdown.Item>
+                    <Dropdown.Item key="GenHealth_Poor">Poor</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 
-                <Spacer y={0.5} />
+              <Spacer y={1.0} />
+              <Text h7 align="center">Rate your physical health: 0 (good) to 30 (poor)</Text>
               <Input
                 clearable
                 Placeholder="Physical Health (0-30)"
@@ -415,7 +361,8 @@ function HealthInput(props) {
                 }
               />
 
-              <Spacer y={0.5} />
+              <Spacer y={1.0} />
+              <Text h7 align="center">Rate your mental health: 0 (poor) to 30 (good)</Text>
               <Input
                 clearable
                 Placeholder="Mental Health (0-30)"
@@ -423,10 +370,25 @@ function HealthInput(props) {
                   setMentalHealth(event.target.value)
                 }
               />
-              <Spacer y={0.5} />
-            </Col>
-            <Col justify="center" align="center">
-                <Spacer y={0.5} />
+
+               <Spacer y={1.0} />
+              <Text h7 align="center">Physical activity in the past 30 days?</Text>
+                <Dropdown>
+                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                    {physicalActivity ? physicalActivity : "Physical Activity (past 30 days)"}
+                  </Dropdown.Button>
+                  <Dropdown.Menu
+                    disallowEmptySelection="true"
+                    selectionMode="single"
+                    onSelectionChange={setPhysicalActivity}
+                  >
+                    <Dropdown.Item key="yes">Yes</Dropdown.Item>
+                    <Dropdown.Item key="no">No</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+
+               <Spacer y={1.0} />
+              <Text h7 align="center">Do you have difficulty walking or climbing stairs?</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
                     {diffWalking ? diffWalking : "Difficulty Walking"}
@@ -442,29 +404,12 @@ function HealthInput(props) {
                 </Dropdown>
 
                 <Spacer y={0.5} />
-                <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
-                    {physicalActivity ? physicalActivity : "Physical Activity (past 30 days)"}
-                  </Dropdown.Button>
-                  <Dropdown.Menu
-                    disallowEmptySelection="true"
-                    selectionMode="single"
-                    onSelectionChange={setPhysicalActivity}
-                  >
-                    <Dropdown.Item key="yes">Yes</Dropdown.Item>
-                    <Dropdown.Item key="no">No</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+            </Col>
 
-                <Spacer y={0.5} />
-                <Input
-                  clearable
-                  Placeholder="Sleep Time (hrs)"
-                  onChange={(event) =>
-                    setSleepTime(event.target.value)
-                  }
-                />
-                <Spacer y={0.5} />
+            <Col justify="center" align="center">
+            <Text h4 align="center">Health History</Text>
+               <Spacer y={1.0} />
+              <Text h7 align="center">Do you have/ever had Asthma?</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
                     {asthma ? asthma : "Asthma"}
@@ -479,7 +424,8 @@ function HealthInput(props) {
                   </Dropdown.Menu>
                 </Dropdown>
 
-                <Spacer y={0.5} />
+               <Spacer y={1.0} />
+              <Text h7 align="center">Do you have/ever had Kidney Disease?</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
                     {kidneyDisease ? kidneyDisease : "Kidney Disease"}
@@ -494,7 +440,8 @@ function HealthInput(props) {
                   </Dropdown.Menu>
                 </Dropdown>
 
-                <Spacer y={0.5} />
+              <Spacer y={1.0} />
+              <Text h7 align="center">Do you have/ever had Skin Cancer?</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
                     {skinCancer ? skinCancer : "Skin Cancer"}
@@ -509,26 +456,9 @@ function HealthInput(props) {
                   </Dropdown.Menu>
                 </Dropdown>
 
-                <Spacer y={0.5} />
-                <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
-                    {race ? race : "Race"}
-                  </Dropdown.Button>
-                  <Dropdown.Menu
-                    disallowEmptySelection="true"
-                    selectionMode="single"
-                    onSelectionChange={setRace}
-                  >
-                    <Dropdown.Item key="Race_American Indian/Alaskan Native">American Indian/Alaskan Native</Dropdown.Item>
-                    <Dropdown.Item key="Race_Asian">Asian</Dropdown.Item>                    
-                    <Dropdown.Item key="Race_Black">Black</Dropdown.Item>
-                    <Dropdown.Item key="Race_White">White</Dropdown.Item>
-                    <Dropdown.Item key="Race_Hispanic">Hispanic</Dropdown.Item>
-                    <Dropdown.Item key="Race_Other">Other</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
 
-                <Spacer y={0.5} />
+                <Spacer y={1.0} />
+              <Text h7 align="center">Do you have/ever had Diabetes?</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
                     {diabetic ? diabetic : "Diabetic"}
@@ -539,30 +469,158 @@ function HealthInput(props) {
                     onSelectionChange={setDiabetic}
                   >
                     <Dropdown.Item key="Diabetic_0">No</Dropdown.Item>
-                    <Dropdown.Item key="Diabetic_1">Yes</Dropdown.Item>                    
+                    <Dropdown.Item key="Diabetic_1">Yes</Dropdown.Item>
                     <Dropdown.Item key="Diabetic_No, borderline diabetes">Borderline</Dropdown.Item>
                     <Dropdown.Item key="Diabetic_Yes (during pregnancy)">Yes,during pregnancy</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 
-                <Spacer y={0.5} />
+              <Spacer y={1.0} />
+              <Text h7 align="center">Normal Fasting Blood Sugar</Text>
+              <Dropdown>
+                <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  {fastingBS ? fastingBS : "Normal Fasting BS"}
+                </Dropdown.Button>
+                <Dropdown.Menu
+                  disallowEmptySelection="true"
+                  selectionMode="single"
+                  onSelectionChange={setFastingBS}
+                >
+                  <Dropdown.Item key="yes">Yes</Dropdown.Item>
+                  <Dropdown.Item key="no">No</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+
+              <Spacer y={1.0} />
+              <Text h7 align="center">Have you ever had a stroke?</Text>
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize" }}>
-                    {genHealth ? genHealth : "General Health Level"}
+                    {stroke ? stroke : "Stroke"}
                   </Dropdown.Button>
                   <Dropdown.Menu
                     disallowEmptySelection="true"
                     selectionMode="single"
-                    onSelectionChange={setGenHealth}
+                    onSelectionChange={setStroke}
                   >
-                    <Dropdown.Item key="GenHealth_Excellent">Excellent</Dropdown.Item>
-                    <Dropdown.Item key="GenHealth_Very good">Very Good</Dropdown.Item>
-                    <Dropdown.Item key="GenHealth_Fair">Fair</Dropdown.Item>                    
-                    <Dropdown.Item key="GenHealth_Good">Good</Dropdown.Item>
-                    <Dropdown.Item key="GenHealth_Poor">Poor</Dropdown.Item>                    
+                    <Dropdown.Item key="yes">Yes</Dropdown.Item>
+                    <Dropdown.Item key="no">No</Dropdown.Item>
                   </Dropdown.Menu>
-                </Dropdown>              
-              <Spacer y={0.5} />
+                </Dropdown>
+
+              <Spacer y={1.0} />
+              <Text h7 align="center">Exercise Induced Angina</Text>
+              <Dropdown>
+                <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  {angina ? angina : "Exercise Induced Angina"}
+                </Dropdown.Button>
+                <Dropdown.Menu
+                  disallowEmptySelection="true"
+                  selectionMode="single"
+                  onSelectionChange={setAngina}
+                >
+                  <Dropdown.Item key="yes">Yes</Dropdown.Item>
+                  <Dropdown.Item key="no">No</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+
+                <Spacer y={0.5} />
+            </Col>
+
+            <Col justify="center" align="center">
+            <Text h4 align="center">Technical Data</Text>
+              <Spacer y={1.0} />
+              <Text h7 align="center">Resting BP</Text>
+              <Input
+                clearable
+                Placeholder="Resting BP"
+                onChange={(event) =>
+                  setRestingBP(event.target.value)
+                }
+              />
+
+              <Spacer y={1.0} />
+              <Text h7 align="center">Max Heart Rate</Text>
+              <Input
+                clearable
+                Placeholder="Max HR"
+                onChange={(event) =>
+                  setMaxHR(event.target.value)
+                }
+              />
+
+              <Spacer y={1.0} />
+              <Text h7 align="center">Cholesterol</Text>
+              <Input
+                clearable
+                Placeholder="Cholesterol"
+                onChange={(event) =>
+                  setCholesterol(event.target.value)
+                }
+              />
+
+              <Spacer y={1.0} />
+              <Text h7 align="center">Resting ECG</Text>
+                <Dropdown>
+                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                    {restingECG ? restingECG : "Resting ECG"}
+                  </Dropdown.Button>
+                  <Dropdown.Menu
+                    disallowEmptySelection="true"
+                    selectionMode="single"
+                    onSelectionChange={setRestingECG}
+                  >
+                    <Dropdown.Item key="RestingECG_LVH">LVH</Dropdown.Item>
+                    <Dropdown.Item key="RestingECG_Normal">Normal</Dropdown.Item>
+                    <Dropdown.Item key="RestingECG_ST">ST</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+
+              <Spacer y={1.0} />
+              <Text h7 align="center">ST Slope</Text>
+                <Dropdown>
+                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                    {ST_Slope ? ST_Slope : "ST Slope"}
+                  </Dropdown.Button>
+                  <Dropdown.Menu
+                    disallowEmptySelection="true"
+                    selectionMode="single"
+                    onSelectionChange={setST_Slope}
+                  >
+                    <Dropdown.Item key="ST_Slope_Down">Down</Dropdown.Item>
+                    <Dropdown.Item key="ST_Slope_Flat">Flat</Dropdown.Item>
+                    <Dropdown.Item key="ST_Slope_Up">Up</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+
+              <Spacer y={1.0} />
+                <Text h7 align="center">Chest Pain</Text>
+                <Dropdown>
+                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                    {chestPain ? chestPain : "Chest Pain"}
+                  </Dropdown.Button>
+                  <Dropdown.Menu
+                    disallowEmptySelection="true"
+                    selectionMode="single"
+                    onSelectionChange={setChestPain}
+                  >
+                    <Dropdown.Item key="ChestPainType_ATA">Atypical Angina</Dropdown.Item>
+                    <Dropdown.Item key="ChestPainType_NAP">Non-Anginal Pain</Dropdown.Item>
+                    <Dropdown.Item key="ChestPainType_TA">Typical Angina</Dropdown.Item>
+                    <Dropdown.Item key="ChestPainType_TA">Asymptomatic</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+
+              <Spacer y={1.0} />
+              <Text h7 align="center">Old Peak</Text>
+              <Input
+                clearable
+                Placeholder="Old Peak"
+                onChange={(event) =>
+                  setOldPeak(event.target.value)
+                }
+              />
+
+                <Spacer y={0.5} />
             </Col>
         <Spacer y={1} />
       </Row>
