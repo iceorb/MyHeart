@@ -87,9 +87,6 @@ def form():
     output1 = load_model1(mod1_data)
     output2 = load_model2(mod2_data)
 
-    print(output1)
-    print(output2)
-
     output_final = int(output1[0]) + int(output2[0])
 
     model1_res = 100 if int(output1[0]) == 1 else 0
@@ -102,7 +99,7 @@ def form():
                     mod2_data[8])
 
     rec[0] = 2 if rec[0] == 1 else rec[0]
-    print(rec)
+
     return {'result': {'model1': model1_res, 'model2': model2_res}, 'flags': {'smoke': rec[0], 'alc': rec[1], 'pa': rec[2], 'sleep': rec[3]}}
 
 
