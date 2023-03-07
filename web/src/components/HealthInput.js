@@ -13,10 +13,6 @@ function HealthInput(props) {
     setVisible(false);
   };
 
-//  const {
-//    onSubmit,
-//  } = props
-
   const [age, setAge] = useState(''); // Age
   const [sex, setSex] = useState(''); // Sex (male or female)
   const selectedSex = React.useMemo(
