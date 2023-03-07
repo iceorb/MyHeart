@@ -4,9 +4,12 @@
 ***Winner of Epic Systems Healthcare Empowerment Award***
 
 
-MyHeart is a proof-of-concept web application that empowers patients to take control of their own health by submitting healthcare information such as biological, behavioral, and socioeconomic factors. The focus of MyHeart is on addressing socioeconomic factors that can contribute to the development of various health conditions, including heart disease.
+MyHeart is a proof-of-concept web application that empowers patients to take control of their own health by submitting healthcare information such as biological, behavioral, and socioeconomic factors to provide personalized recommendations and risk assessments for users.
 
-https://icexorb.github.io/myheart/
+Built by 4 UW-Madison students at their first-ever hackathon, MyHeart meets at the intersection machine learning, healthcare, and social good. Drawing from research done by New York University's School of Medicine, machine learning was combined with [social determinants of health](https://health.gov/healthypeople/priority-areas/social-determinants-health) to better contextulize the community and environment in which the patient comes from. This approach allows MyHeart to address important socioeconomic factors that are often overlooked when diagnosing a patient.
+
+
+[**Try it out**](https://icexorb.github.io/myheart/)
 
 ## Technology
 MyHeart uses three models to provide personalized recommendations and risk assessments for users:
@@ -54,4 +57,4 @@ You results and recommendations will be printed in the terminal running the Pyth
 
 MyHeart does NOT collect nor store any data outside of your device. You data is NEVER sent or stored outside of the device you are running MyHeart on.
 
-In addition to the above disclaimer, it is important to note that MyHeart is not intended to provide medical advice or diagnosis. The predictions and recommendations provided by the application are based on statistical models and should not be used as a substitute for professional medical advice or treatment. Users should always consult with a qualified healthcare professional before making any changes to their healthcare regimen. MyHeart is intended to be a tool to help patients take control of their own health, but it is not a substitute for professional medical advice or treatment.
+It is important to note that MyHeart is not intended to provide medical advice or diagnosis. The predictions and recommendations provided by the application are based on statistical models and should not be used as a substitute for professional medical advice or treatment. Users should always consult with a qualified healthcare professional before making any changes to their healthcare regimen. MyHeart is intended to be a tool to help patients take control of their own health, but it is not a substitute for professional medical advice or treatment.
