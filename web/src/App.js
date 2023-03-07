@@ -69,9 +69,6 @@ function App({ Component }) {
       <Container lg>
         <Spacer y="2"></Spacer>
       <Grid.Container gap={2}>
-        <Grid sm={8} xs={12}>
-          <RenderResults nums={result} signal={flags} />
-        </Grid>
         <Grid sm={4} xs={12}>
           <Card>
             <Card.Body>
@@ -79,13 +76,18 @@ function App({ Component }) {
             </Card.Body>
           </Card>
         </Grid>
+
+        <Grid sm={8} xs={12}>
+          <RenderResults nums={result} signal={flags} />
+        </Grid>
+
       </Grid.Container>
       <Spacer y="2" />
-      <Col justify="center" align="left">
-        <Button auto shadow color="red" justify="center" align="center" flex="center"
+      <Col justify="center" align="center">
+        <Button justify="center" align="left" flex="center"
           onPress={updateCount}
           light>
-          <Text h4 align="left"
+          <Text h3 align="left"
             weight="bold"
           >Update Recommendations</Text>
         </Button>
