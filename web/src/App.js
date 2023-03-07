@@ -18,7 +18,12 @@ import RenderResults from './components/RenderResults';
 // eslint-disable-next-line
 import Nav from './components/Nav';
 
+
 function App({ Component }) {
+  useEffect(() => {
+    document.title = 'MyHeart';
+  }, []);
+
   const [result, setResult] = useState(0);
   const [flags, setFlags] = useState({
     alc:-1,
