@@ -6,7 +6,7 @@
 
 MyHeart is a proof-of-concept web application that empowers patients to take control of their own health by submitting healthcare information such as biological, behavioral, and socioeconomic factors to provide personalized recommendations and risk assessments for users.
 
-Built by 4 UW-Madison students at their first-ever hackathon, MyHeart meets at the intersection machine learning, healthcare, and social good. Drawing from research done by New York University's School of Medicine, machine learning was combined with [social determinants of health](https://health.gov/healthypeople/priority-areas/social-determinants-health) to better contextulize the community and environment in which the patient comes from. This approach allows MyHeart to address important socioeconomic factors that are often overlooked when diagnosing a patient.
+Built by 4 UW-Madison students at their first-ever hackathon, MyHeart meets at the intersection of machine learning, healthcare, and social good. Drawing from research done by New York University's School of Medicine, machine learning was combined with [social determinants of health](https://health.gov/healthypeople/priority-areas/social-determinants-health) to better contextulize the community and environment in which the patient comes from. This approach allows MyHeart to address important socioeconomic factors that are often overlooked when diagnosing a patient.
 
 ## Preview
 
@@ -31,7 +31,7 @@ Dataset 1: Contains ~900 data points, accuracy = 87%.
 Dataset 2: Contains ~32,000 data points, accuracy=91.5%.
 
 ## Model
-We used two datasets that use different metrics to predict the risk of heart disease. Using these datasets, we were able to run a K-fold logistic regression model to predict whether the user was at low, moderate, or high risk of heart disease. By combining these two datasets, with a total of approximately 33,000 entries, we can give our prediction with 90% confidence.
+We used two datasets, that use different metrics, to predict the risk of heart disease. Using these datasets, we were able to run a K-fold Logistic Regression model to predict whether the user was at low, moderate, or high risk of heart disease. By combining these two datasets, with a total of approximately 33,000 entries, we can give our predictions with 90% confidence.
 
 ## Getting Started
 To get started with MyHeart, simply clone the repository and install the necessary dependencies:
@@ -62,4 +62,4 @@ You results and recommendations will be printed in the terminal running the Pyth
 
 MyHeart does NOT collect nor store any data outside of your device. You data is NEVER sent or stored outside of the device you are running MyHeart on.
 
-It is important to note that MyHeart is not intended to provide medical advice or diagnosis. The predictions and recommendations provided by the application are based on statistical models and should not be used as a substitute for professional medical advice or treatment. Users should always consult with a qualified healthcare professional before making any changes to their healthcare regimen. MyHeart is intended to be a tool to help patients take control of their own health, but it is not a substitute for professional medical advice or treatment.
+Note: MyHeart is not intended to provide medical advice or diagnosis. The predictions and recommendations provided by the application are based on statistical models and should not be used as a substitute for professional medical advice or treatment. Users should always consult with a qualified healthcare professional before making any changes to their healthcare regimen. MyHeart is intended to be a tool to help patients take control of their own health, but it is not a substitute for professional medical advice or treatment.
