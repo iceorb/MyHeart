@@ -2,7 +2,7 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://icexorb.github.io/madhacks2023/",
+  "homepage": "https://icexorb.github.io/myheart",
   "proxy":"http://127.0.0.1:5000/",
   "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.12",
