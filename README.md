@@ -47,5 +47,6 @@ You can then access the application by navigating to http://localhost:3000 in yo
 
 To use the MyHeart model, simply submit your healthcare information, including biological, behavioral, and socioeconomic factors. The MyHeart model will then give you proactive suggestions and information to improve your cardiovascular health.
 
-DISCLAIMER: 
+## DISCLAIMER
+
 MyHeart does NOT collect nor store any data outside of your device. NO connections are made to any external APIs or servers. You data is NEVER sent or stored outside of the device you are running MyHeart on.
