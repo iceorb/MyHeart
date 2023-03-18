@@ -4,9 +4,9 @@
 ***Winner of Epic Systems Healthcare Empowerment Award***
 
 
-MyHeart is a proof-of-concept web application that empowers patients to take control of their own health by submitting healthcare information such as biological, behavioral, and socioeconomic factors to provide personalized recommendations and risk assessments for users.
+MyHeart is a proof-of-concept web application that empowers patients to take control of their own health by providing personalized recommendations and risk assessments for users based on three separate ML models.
 
-Built by 4 UW-Madison students at their first-ever hackathon, MyHeart meets at the intersection of machine learning, healthcare, and social good. Drawing from research done by New York University's School of Medicine, machine learning was combined with [social determinants of health](https://health.gov/healthypeople/priority-areas/social-determinants-health) to better contextualize the community and environment in which the patient comes from. This approach allows MyHeart to address important socioeconomic factors that are often overlooked when diagnosing a patient.
+Built by 4 UW-Madison students at their first-ever hackathon, MyHeart meets at the intersection of machine learning, healthcare, and social good. Drawing from research done by New York University's School of Medicine, machine learning was combined with [social determinants of health](https://health.gov/healthypeople/priority-areas/social-determinants-health) to better contextualize the community and environmental factors that can impact an individual's cardiovascular health. The resulting technology allows healthcare professionals to provide more personalized and effective care to patients, while also addressing broader public health concerns related to social inequalities and access to care.
 
 ## Preview
 
