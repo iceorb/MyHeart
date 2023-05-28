@@ -11,7 +11,7 @@ import './App.css';
 import { NextUIProvider, Navbar, Button } from '@nextui-org/react';
 
 // eslint-disable-next-line
-import { createTheme, Card, Col, Row, Grid, Container, Spacer, Text, Switch } from '@nextui-org/react';
+import { createTheme, Card, Col, Row, Grid, Container, Spacer, Text, Switch, Loading } from '@nextui-org/react';
 import HealthInput from './components/HealthInput';
 import RenderResults from './components/RenderResults';
 import { Sun } from './components/Nightmode/Sun';
@@ -19,7 +19,6 @@ import { Moon } from './components/Nightmode/Moon';
 
 // eslint-disable-next-line
 import Nav from './components/Nav';
-import RefreshButton from './components/RefreshButton';
 
 
 
@@ -38,6 +37,7 @@ function App({ Component }) {
 
   // Count to update data
   const [count, setCount] = useState(-1);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   const handleSubmit = (data) => {
     console.log(data);
@@ -66,7 +66,13 @@ function App({ Component }) {
 
   // update count to update data
   const updateCount = () => {
-    setCount(count + 1);
+    setIsRefreshing(true);
+
+    // Perform the refresh action
+    setTimeout(() => {
+      setCount(count + 1);
+      setIsRefreshing(false);
+    }, 1700);
   };
 
   const theme = createTheme({
@@ -93,17 +99,28 @@ function App({ Component }) {
       </Grid.Container>
       <Spacer y="2" />
       <Col justify="center" align="center">
-        <Button justify="center" align="left" flex="center"
-          onPress={updateCount}
-          light>
-          <Text h3 align="left"
-            weight="bold"
-          >Refresh Recommendations</Text>
-        </Button>
+      <Button
+        justify="center"
+        align="left"
+        flex="center"
+        onPress={updateCount}
+        disabled={isRefreshing}
+        light
+        animated={false}
+      >
+        {isRefreshing ? (
+          <Loading color="currentColor" size="md" />
+        ) : (
+          <Text h4 align="left" weight="bold">
+            Refresh
+          </Text>
+        )}
+      </Button>
       </Col>
-      <Spacer y="2" />
+      <Spacer y="4" />
       <Col justify="center" align="center">
       <Switch
+          color="default"
           onChange={toggleDark}
           checked={true}
           size="xl"
@@ -111,7 +128,7 @@ function App({ Component }) {
           iconOff={<Moon filled />}
         />
       </Col>
-      <Spacer y="3"/>
+      <Spacer y="2"/>
       <Col justify="center" align="center">
           <Text
             weight="bold"

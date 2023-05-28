@@ -266,13 +266,14 @@ function HealthInput(props) {
                 onChange={(event) =>
                   setAge(event.target.value)
                 }
-                style={{ paddingRight: '20px' }}
+                style={{ paddingRight: '20px', width: '180px'}}
               />
 
               <Spacer y={1.0} />
               <Text h7 align="center">Sex</Text>
               <Dropdown>
-                <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                <Dropdown.Button flat 
+                css={{ tt: "capitalize", width: '200px'}}>
                   {sex ? sex : "Sex"}
                 </Dropdown.Button>
                 <Dropdown.Menu
@@ -288,7 +289,7 @@ function HealthInput(props) {
                <Spacer y={1.0} />
               <Text h7 align="center">Race</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width: '200px' }}>
                     {race ? race : "Race"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -307,7 +308,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Do you smoke?</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width: '200px'}}>
                     {smoking ? smoking : "Smoking"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -323,7 +324,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Do you consume alcohol?</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {alcoholDrinking ? alcoholDrinking : "Drink Alchohol"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -368,7 +369,7 @@ function HealthInput(props) {
                 <Spacer y={1.0} />
               <Text h7 align="center">How would you rate your general health?</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {genHealth ? genHealth : "General Health Level"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -413,7 +414,7 @@ function HealthInput(props) {
                <Spacer y={1.0} />
               <Text h7 align="center">Physical activity in the past 30 days?</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {physicalActivity ? physicalActivity : "Physical Activity"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -429,7 +430,7 @@ function HealthInput(props) {
                <Spacer y={1.0} />
               <Text h7 align="center">Do you have difficulty walking or climbing stairs?</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {diffWalking ? diffWalking : "Difficulty Walking"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -450,7 +451,7 @@ function HealthInput(props) {
                <Spacer y={1.0} />
               <Text h7 align="center">Do you have/ever had Asthma?</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {asthma ? asthma : "Asthma"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -466,7 +467,7 @@ function HealthInput(props) {
                <Spacer y={1.0} />
               <Text h7 align="center">Do you have/ever had Kidney Disease?</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {kidneyDisease ? kidneyDisease : "Kidney Disease"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -482,7 +483,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Do you have/ever had Skin Cancer?</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {skinCancer ? skinCancer : "Skin Cancer"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -499,7 +500,7 @@ function HealthInput(props) {
                 <Spacer y={1.0} />
               <Text h7 align="center">Do you have/ever had Diabetes?</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {diabetic ? diabetic : "Diabetic"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -517,7 +518,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Normal Fasting Blood Sugar</Text>
               <Dropdown>
-                <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                   {fastingBS ? fastingBS : "Normal Fasting BS"}
                 </Dropdown.Button>
                 <Dropdown.Menu
@@ -533,7 +534,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Have you ever had a stroke?</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {stroke ? stroke : "Stroke"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -549,7 +550,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Exercise Induced Angina</Text>
               <Dropdown>
-                <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                   {angina ? angina : "Exercise Induced Angina"}
                 </Dropdown.Button>
                 <Dropdown.Menu
@@ -609,7 +610,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">Resting ECG</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {restingECG ? restingECG : "Resting ECG"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -626,7 +627,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
               <Text h7 align="center">ST Slope</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {ST_Slope ? ST_Slope : "ST Slope"}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -643,7 +644,7 @@ function HealthInput(props) {
               <Spacer y={1.0} />
                 <Text h7 align="center">Chest Pain</Text>
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize" }}>
+                  <Dropdown.Button flat css={{ tt: "capitalize", width:'200px'}}>
                     {chestPain ? chestPain : "Chest Pain"}
                   </Dropdown.Button>
                   <Dropdown.Menu
