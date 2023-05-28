@@ -41,6 +41,8 @@ git clone https://github.com/icexorb/myheart.git
 cd myheart
 pip install scikit-learn pandas flask flask-cors
 npm install
+cd web
+npm install
 ```
 
 Once you have installed the dependencies, start the required servers, ensure you are located in the /web/ directory:

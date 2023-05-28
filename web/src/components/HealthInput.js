@@ -266,6 +266,7 @@ function HealthInput(props) {
                 onChange={(event) =>
                   setAge(event.target.value)
                 }
+                style={{ paddingRight: '20px' }}
               />
 
               <Spacer y={1.0} />
@@ -344,6 +345,7 @@ function HealthInput(props) {
                   onChange={(event) =>
                     setSleepTime(event.target.value)
                   }
+                  style={{ paddingRight: '20px' }}
                 />
 
               <Spacer y={1.0} />
@@ -356,6 +358,7 @@ function HealthInput(props) {
                 onChange={(event) =>
                   setBMI(event.target.value)
                 }
+                style={{ paddingRight: '20px' }}
               />
                 <Spacer y={0.5} />
             </Col>
@@ -391,6 +394,7 @@ function HealthInput(props) {
                 onChange={(event) =>
                   setPhysicalHealth(event.target.value)
                 }
+                style={{ paddingRight: '20px' }}
               />
 
               <Spacer y={1.0} />
@@ -403,6 +407,7 @@ function HealthInput(props) {
                 onChange={(event) =>
                   setMentalHealth(event.target.value)
                 }
+                style={{ paddingRight: '20px' }}
               />
 
                <Spacer y={1.0} />
@@ -572,6 +577,7 @@ function HealthInput(props) {
                 onChange={(event) =>
                   setRestingBP(event.target.value)
                 }
+                style={{ paddingRight: '20px' }}
               />
 
               <Spacer y={1.0} />
@@ -584,6 +590,7 @@ function HealthInput(props) {
                 onChange={(event) =>
                   setMaxHR(event.target.value)
                 }
+                style={{ paddingRight: '20px' }}
               />
 
               <Spacer y={1.0} />
@@ -596,6 +603,7 @@ function HealthInput(props) {
                 onChange={(event) =>
                   setCholesterol(event.target.value)
                 }
+                style={{ paddingRight: '20px' }}
               />
 
               <Spacer y={1.0} />
@@ -660,6 +668,7 @@ function HealthInput(props) {
                 onChange={(event) =>
                   setOldPeak(event.target.value)
                 }
+                style={{ paddingRight: '20px' }}
               />
 
                 <Spacer y={0.5} />
