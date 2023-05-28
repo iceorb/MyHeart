@@ -19,6 +19,7 @@ import { Moon } from './components/Nightmode/Moon';
 
 // eslint-disable-next-line
 import Nav from './components/Nav';
+import RefreshButton from './components/RefreshButton';
 
 
 
@@ -97,7 +98,7 @@ function App({ Component }) {
           light>
           <Text h3 align="left"
             weight="bold"
-          >Update Recommendations</Text>
+          >Refresh Recommendations</Text>
         </Button>
       </Col>
       <Spacer y="2" />
@@ -110,12 +111,12 @@ function App({ Component }) {
           iconOff={<Moon filled />}
         />
       </Col>
+      <Spacer y="3"/>
       <Col justify="center" align="center">
           <Text
             weight="bold"
           >Made in Wisconsin with ❤️ and 🧀</Text>
       </Col>
-      <Spacer y="3"/>
       </Container>
       <Spacer y="3"/>
     </NextUIProvider>
