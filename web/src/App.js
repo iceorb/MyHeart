@@ -11,12 +11,15 @@ import './App.css';
 import { NextUIProvider, Navbar, Button } from '@nextui-org/react';
 
 // eslint-disable-next-line
-import { createTheme, Card, Col, Row, Grid, Container, Spacer, Text } from '@nextui-org/react';
+import { createTheme, Card, Col, Row, Grid, Container, Spacer, Text, Switch } from '@nextui-org/react';
 import HealthInput from './components/HealthInput';
 import RenderResults from './components/RenderResults';
+import { Sun } from './components/Nightmode/Sun';
+import { Moon } from './components/Nightmode/Moon';
 
 // eslint-disable-next-line
 import Nav from './components/Nav';
+
 
 
 function App({ Component }) {
@@ -99,21 +102,22 @@ function App({ Component }) {
       </Col>
       <Spacer y="2" />
       <Col justify="center" align="center">
-        <Button justify="center" align="center" flex="center"
-          onPress={toggleDark}
-          light>
-          <Text
-            weight="bold"
-          >Toggle Theme</Text>
-        </Button>
+      <Switch
+          onChange={toggleDark}
+          checked={true}
+          size="xl"
+          iconOn={<Sun filled />}
+          iconOff={<Moon filled />}
+        />
       </Col>
       <Col justify="center" align="center">
           <Text
             weight="bold"
           >Made in Wisconsin with ❤️ and 🧀</Text>
       </Col>
-      <Spacer y="2" />
+      <Spacer y="3"/>
       </Container>
+      <Spacer y="3"/>
     </NextUIProvider>
   );
 }
